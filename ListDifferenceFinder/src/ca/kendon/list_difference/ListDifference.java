@@ -1,3 +1,5 @@
+package ca.kendon.list_difference;
+
 import java.util.List;
 
 public class ListDifference {
