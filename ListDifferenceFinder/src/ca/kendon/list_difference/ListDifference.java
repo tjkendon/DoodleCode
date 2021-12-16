@@ -29,7 +29,7 @@ public class ListDifference {
      *
      * @return
      */
-    public Collection<String> getOnlyInA() {
+    public Set<String> onlyInA() {
         Set<String> resultSet = new HashSet<>(a);
         resultSet.removeAll(b);
         return resultSet;
@@ -41,10 +41,35 @@ public class ListDifference {
      *
      * @return
      */
-    public Collection<String> getOnlyInB() {
+    public Set<String> onlyInB() {
         Set<String> resultSet = new HashSet<>(b);
         resultSet.removeAll(a);
         return resultSet;
+    }
+
+    public Set<String> union() {
+        Set<String> fullSet = new HashSet<>(a);
+        fullSet.addAll(b);
+        return fullSet;
+    }
+
+    public double percentInA() {
+        return (onlyInA().size() / union().size());
+    }
+
+    public double percentInB() {
+        return (onlyInB().size() / union().size());
+    }
+
+    public Set<String> intersection() {
+        Set<String> resultSet = union();
+        resultSet.removeAll(onlyInA());
+        resultSet.removeAll(onlyInB());
+        return resultSet;
+    }
+
+    public double similarity() {
+        return intersection().size() / union().size();
     }
 
 }
