@@ -1,14 +1,26 @@
 package ca.kendon.list_difference;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ListDifference {
 
-    List a;
-    List b;
+    Set<String> setA;
+    Set<String> setB;
 
-    public double getDifference() {
-        return 0.0;
+    /**
+     *
+     * Creates a new ListDifference from the two given collections.
+     *
+     * @param listA
+     * @param listB
+     */
+    public ListDifference(Collection<String> listA, Collection<String> listB) {
+
+        this.setA = new HashSet<>(listA);
+        this.setB = new HashSet<>(listB);
+
     }
 
 }
