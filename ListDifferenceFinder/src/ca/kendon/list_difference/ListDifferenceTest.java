@@ -2,6 +2,8 @@ package ca.kendon.list_difference;
 
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -92,21 +94,62 @@ class ListDifferenceTest {
 
     @Test
     void union() {
-    }
+        ArrayList<String> a = new ArrayList<>();
+        a.add("B");
+        a.add("C");
+        a.add("D");
+        ArrayList<String> b= new ArrayList<>();
+        b.add("A");
+        b.add("B");
+        b.add("C");
 
-    @Test
-    void percentInA() {
-    }
+        ListDifference diff = new ListDifference(a, b);
 
-    @Test
-    void percentInB() {
+        Set<String> expected = new HashSet<>();
+        expected.add("A");
+        expected.add("B");
+        expected.add("C");
+        expected.add("D");
+
+        Set<String> result = diff.union();
+        assertIterableEquals(expected, result);
+
     }
 
     @Test
     void intersection() {
+        ArrayList<String> a = new ArrayList<>();
+        a.add("B");
+        a.add("C");
+        a.add("D");
+        ArrayList<String> b= new ArrayList<>();
+        b.add("A");
+        b.add("B");
+        b.add("C");
+
+        ListDifference diff = new ListDifference(a, b);
+
+        Set<String> expected = new HashSet<>();
+        expected.add("B");
+        expected.add("C");
+
+        Set<String> result = diff.intersection();
+        assertIterableEquals(expected, result);
     }
 
     @Test
+    @Disabled
+    void percentInA() {
+    }
+
+    @Test
+    @Disabled
+    void percentInB() {
+    }
+
+
+    @Test
+    @Disabled
     void similarity() {
     }
 }
