@@ -54,11 +54,11 @@ public class ListDifference {
     }
 
     public double percentInA() {
-        return (onlyInA().size() / union().size());
+        return ((double)onlyInA().size() / (double)union().size());
     }
 
     public double percentInB() {
-        return (onlyInB().size() / union().size());
+        return ((double)onlyInB().size() / (double)union().size());
     }
 
     public Set<String> intersection() {
@@ -69,7 +69,7 @@ public class ListDifference {
     }
 
     public double similarity() {
-        return intersection().size() / union().size();
+        return (double)intersection().size() / (double)union().size();
     }
 
 }
