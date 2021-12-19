@@ -138,18 +138,67 @@ class ListDifferenceTest {
     }
 
     @Test
-    @Disabled
     void percentInA() {
+
+        ArrayList<String> a = new ArrayList<>();
+        a.add("A");
+        a.add("B");
+        a.add("C");
+        a.add("D");
+        ArrayList<String> b= new ArrayList<>();
+        b.add("B");
+        b.add("C");
+        b.add("D");
+
+        ListDifference diff = new ListDifference(a, b);
+
+        double expected = 0.25; // 1 only in a, 4 in union
+        double result = diff.percentInA();
+
+        assertEquals(expected, result, 0.01);
+
     }
 
     @Test
-    @Disabled
     void percentInB() {
+        ArrayList<String> a = new ArrayList<>();
+        a.add("B");
+        a.add("C");
+        a.add("D");
+        ArrayList<String> b= new ArrayList<>();
+        b.add("A");
+        b.add("B");
+        b.add("C");
+        b.add("D");
+
+        ListDifference diff = new ListDifference(a, b);
+
+        double expected = 0.25; // 1 only in a, 4 in union
+        double result = diff.percentInB();
+
+        assertEquals(expected, result, 0.01);
+
     }
 
 
+
     @Test
-    @Disabled
     void similarity() {
+        ArrayList<String> a = new ArrayList<>();
+        a.add("B");
+        a.add("C");
+        a.add("D");
+        ArrayList<String> b= new ArrayList<>();
+        b.add("A");
+        b.add("B");
+        b.add("C");
+
+        ListDifference diff = new ListDifference(a, b);
+
+        double expected = 0.5; // 2 only in intersection, 4 in union
+        double result = diff.similarity();
+
+        assertEquals(expected, result, 0.01);
+
     }
 }
