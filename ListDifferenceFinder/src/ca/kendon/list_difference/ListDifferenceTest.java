@@ -1,11 +1,10 @@
 package ca.kendon.list_difference;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,8 +25,8 @@ class ListDifferenceTest {
         Set<String> expected = new HashSet<>();
         expected.add("A");
 
-        Set<String> result = (HashSet<String>) diff.onlyInA();
-        Assertions.assertIterableEquals(expected, result);
+        Set<String> result = diff.onlyInA();
+        assertIterableEquals(expected, result);
 
     }
 
@@ -45,10 +44,12 @@ class ListDifferenceTest {
 
         Set<String> expected = new HashSet<>();
 
-        Set<String> result = (HashSet<String>) diff.onlyInA();
-        Assertions.assertIterableEquals(expected, result);
+        Set<String> result = diff.onlyInA();
+        assertIterableEquals(expected, result);
 
     }
+
+
 
     @Test
     void onlyInB_noneOnlyInB() {
@@ -64,8 +65,8 @@ class ListDifferenceTest {
 
         Set<String> expected = new HashSet<>();
 
-        Set<String> result = (HashSet<String>) diff.onlyInB();
-        Assertions.assertIterableEquals(expected, result);
+        Set<String> result = diff.onlyInB();
+        assertIterableEquals(expected, result);
 
     }
 
@@ -85,8 +86,8 @@ class ListDifferenceTest {
         Set<String> expected = new HashSet<>();
         expected.add("A");
 
-        Set<String> result = (HashSet<String>) diff.onlyInB();
-        Assertions.assertIterableEquals(expected, result);
+        Set<String> result = diff.onlyInB();
+        assertIterableEquals(expected, result);
     }
 
     @Test
