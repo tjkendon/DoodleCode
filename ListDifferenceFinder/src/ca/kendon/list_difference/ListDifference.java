@@ -6,8 +6,8 @@ import java.util.Set;
 
 public class ListDifference {
 
-    Set<String> a;
-    Set<String> b;
+    private Set<String> a;
+    private Set<String> b;
 
     /**
      *
@@ -102,4 +102,23 @@ public class ListDifference {
         return (double)intersection().size() / (double)union().size();
     }
 
+    /**
+     *
+     * Returns everything in A
+     *
+     * @return A
+     */
+    public Set<String> getA() {
+        return a;
+    }
+
+    /**
+     *
+     * Returns everything in B
+     *
+     * @return B
+     */
+    public Set<String> getB() {
+        return b;
+    }
 }

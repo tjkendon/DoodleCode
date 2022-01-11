@@ -42,4 +42,7 @@ public class ListDifferenceEngine {
         return data;
     }
 
+    public ListDifference getListDifference() {
+        return difference;
+    }
 }
