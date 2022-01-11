@@ -27,7 +27,7 @@ public class ListDifference {
      *
      * Returns a collection of only those strings found in A.
      *
-     * @return
+     * @return a set of those only in A
      */
     public Set<String> onlyInA() {
         Set<String> resultSet = new HashSet<>(a);
@@ -39,7 +39,7 @@ public class ListDifference {
      *
      * Returns a collection of only those strings found in B.
      *
-     * @return
+     * @return a set of those only in B
      */
     public Set<String> onlyInB() {
         Set<String> resultSet = new HashSet<>(b);
@@ -47,20 +47,24 @@ public class ListDifference {
         return resultSet;
     }
 
+    /**
+     *
+     * Returns the union of A and B.
+     *
+     * @return a set of everything in A and everything in B
+     */
     public Set<String> union() {
         Set<String> fullSet = new HashSet<>(a);
         fullSet.addAll(b);
         return fullSet;
     }
 
-    public double percentInA() {
-        return ((double)onlyInA().size() / (double)union().size());
-    }
-
-    public double percentInB() {
-        return ((double)onlyInB().size() / (double)union().size());
-    }
-
+    /**
+     *
+     * Returns the intersection of A and B
+     *
+     * @return a set of everything found in both A and B
+     */
     public Set<String> intersection() {
         Set<String> resultSet = union();
         resultSet.removeAll(onlyInA());
@@ -68,6 +72,32 @@ public class ListDifference {
         return resultSet;
     }
 
+    /**
+     *
+     * Returns the percentage of strings which are uniquely found in A
+     *
+     * @return the percent of elements only in A (out of the size of the union)
+     */
+    public double percentInA() {
+        return ((double)onlyInA().size() / (double)union().size());
+    }
+
+    /**
+     *
+     Returns the percentage of strings which are uniquely found in B
+     *
+     * @return the percent of elements only in B (out of the size of the union)
+     */
+    public double percentInB() {
+        return ((double)onlyInB().size() / (double)union().size());
+    }
+
+    /**
+     *
+     * Returns the percentage of how similar A and B are
+     *
+     * @return the ratio of the size of the intersection out of the size of the union
+     */
     public double similarity() {
         return (double)intersection().size() / (double)union().size();
     }
