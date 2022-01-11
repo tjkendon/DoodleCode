@@ -30,3 +30,6 @@ hs_err_pid*
 
 # OS files
 .DS_Store
+
+# Data Files
+*/data/*
