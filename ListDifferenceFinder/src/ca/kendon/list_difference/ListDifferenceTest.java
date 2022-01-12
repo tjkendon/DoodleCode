@@ -195,7 +195,7 @@ class ListDifferenceTest {
         ListDifference diff = new ListDifference(a, b);
 
         double expected = 0.5; // 2 only in intersection, 4 in union
-        double result = diff.similarity();
+        double result = diff.jaccardSimilarity();
 
         assertEquals(expected, result, 0.01);
 

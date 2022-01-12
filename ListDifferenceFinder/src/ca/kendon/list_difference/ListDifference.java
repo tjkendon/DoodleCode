@@ -6,15 +6,15 @@ import java.util.Set;
 
 public class ListDifference {
 
-    private Set<String> a;
-    private Set<String> b;
+    private final Set<String> a;
+    private final Set<String> b;
 
     /**
      *
      * Creates a new ListDifference from the two given collections.
      *
-     * @param a
-     * @param b
+     * @param a the first set of strings
+     * @param b the second set of strings
      */
     public ListDifference(Collection<String> a, Collection<String> b) {
 
@@ -94,12 +94,32 @@ public class ListDifference {
 
     /**
      *
-     * Returns the percentage of how similar A and B are
+     * Returns the Jaccard Similarity measure of how similar A and B are
      *
      * @return the ratio of the size of the intersection out of the size of the union
      */
-    public double similarity() {
+    public double jaccardSimilarity() {
         return (double)intersection().size() / (double)union().size();
+    }
+
+    /**
+     *
+     * Returns the S&oslash;rensen&ndash;Dice coefficient measure of how similar A and B are
+     *
+     * @return the ratio of twice the size of the intersection out of the sum of the sizes of a and b
+     */
+    public double sdSimilarity() {
+        return ((double) intersection().size() * 2) / (double) (a.size() + b.size());
+    }
+
+    /**
+     *
+     * Returns the Szymkiewicz–Simpson coefficient measure of how similar A and B are
+     *
+     * @return the ratio of the intersection size out of the lesser of the size of a and b
+     */
+    public double overlapSimilarity() {
+        return (double)intersection().size() / (double) Math.min(a.size(), b.size());
     }
 
     /**
