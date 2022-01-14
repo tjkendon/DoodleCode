@@ -55,7 +55,7 @@ public class Main {
                 false,
                 "show the percentage of unique elements in A");
         options.addOption(
-                "a",
+                "q",
                 "percentB",
                 false,
                 "show the percentage of unique elements in B");
@@ -81,6 +81,10 @@ public class Main {
 
         try {
             CommandLine cl = parser.parse(options, args);
+
+            if (cl.getOptions().length == 0) {
+                control = OutputControl.defaultControl();
+            }
 
             if (cl.hasOption("showA")) {
                 control.setShowA(true);
@@ -115,7 +119,7 @@ public class Main {
             if (cl.hasOption("showO")) {
                 control.setShowOverlap(true);
             }
-            if (args.length > 2) {
+            if (args.length >= 2) {
                 control.setFileA(new File(args[args.length - 2]));
                 control.setFileB(new File(args[args.length - 1]));
             } else {
@@ -127,7 +131,7 @@ public class Main {
                     Level.WARNING, String.format("Error parsing command line %s", e.getLocalizedMessage()));
 
         }
-        
+
         return control;
 
     }
@@ -291,6 +295,15 @@ public class Main {
 
         public void setFileB(File fileB) {
             this.fileB = fileB;
+        }
+
+        public static OutputControl defaultControl() {
+            OutputControl c = new OutputControl();
+            c.setShowA(true);
+            c.setShowB(true);
+            c.setShowIntersection(true);
+            c.setShowOverlap(true);
+            return c;
         }
     }
 }
