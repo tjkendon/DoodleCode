@@ -6,4 +6,4 @@ At least some .pngs, I still need to figure out more about how .pngs are stored 
 
 ## Dependency
 
-Python [Pillow](https://pillow.readthedocs.io/en/stable/}
+Python [Pillow](https://pillow.readthedocs.io/en/stable/)
