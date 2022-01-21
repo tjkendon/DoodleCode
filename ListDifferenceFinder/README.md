@@ -8,6 +8,7 @@ Command line only at this point. Other versions forthcoming some day.
 
 ## Usage
 
+```
 usage: ldt <options> fileA fileB
  -a,--showA              show the elements in a
  -A,--uniqueA            show the unique elements in A
@@ -23,6 +24,7 @@ usage: ldt <options> fileA fileB
  -s,--showSD             show the Soerensen-Dice similarity between A and
                          B
  -u,--showUnion          show the elements in the union
+ ```
 
 ## Dependencies
 
