@@ -74,6 +74,12 @@ public class Main {
                 "showO",
                 false,
                 "show the Szymkiewicz–Simpson similarity between A and B");
+        options.addOption(
+                "h",
+                "help",
+                false,
+                "show this help message");
+
 
         OutputControl control = new OutputControl();
 
@@ -84,6 +90,11 @@ public class Main {
 
             if (cl.getOptions().length == 0) {
                 control = OutputControl.defaultControl();
+            }
+
+            if (cl.hasOption("help")) {
+                HelpFormatter formatter = new HelpFormatter();
+                formatter.printHelp("ldt <options> fileA fileB", options);
             }
 
             if (cl.hasOption("showA")) {
