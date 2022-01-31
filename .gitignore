@@ -24,7 +24,7 @@
 hs_err_pid*
 
 
-# IDE files
+# IntelliJ IDEA files
 *.iml
 .idea/
 
