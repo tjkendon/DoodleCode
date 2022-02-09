@@ -18,6 +18,10 @@ public class Category {
         this.victoryItems = victoryItems;
     }
 
+    private void addPoints(int points) {
+        this.totalPoints += points;
+    }
+
     public String getName() {
         return name;
     }
