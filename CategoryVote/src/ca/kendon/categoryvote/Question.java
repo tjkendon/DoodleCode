@@ -8,6 +8,8 @@ public class Question {
     private String stem;
     private List<Option> options;
 
+    private Option choice;
+
     public Question(String name, String stem, List<Option> options) {
         this.name = name;
         this.stem = stem;
@@ -24,5 +26,9 @@ public class Question {
 
     public List<Option> getOptions() {
         return options;
+    }
+
+    public Option getChoice() {
+        return choice;
     }
 }

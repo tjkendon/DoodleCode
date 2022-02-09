@@ -26,7 +26,7 @@ public class Category implements Comparable<Category> {
         this.victoryItems = victoryItems;
     }
 
-    private void addPoints(int points) {
+    public void addPoints(int points) {
         this.totalPoints += points;
     }
 
@@ -44,6 +44,10 @@ public class Category implements Comparable<Category> {
 
     public List<String> getVictoryItems() {
         return victoryItems;
+    }
+
+    public boolean canWin() {
+        return totalPoints >= victoryPointReduction;
     }
 
     /**
