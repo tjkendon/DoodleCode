@@ -1,5 +1,7 @@
 package ca.kendon.categoryvote;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Category {
@@ -11,6 +13,12 @@ public class Category {
     private int totalPoints = 0;
 
     final List<String> victoryItems;
+
+    public Category(String name, int victoryPointReduction) {
+        this.name = name;
+        this.victoryPointReduction = victoryPointReduction;
+        this.victoryItems = new ArrayList<>();
+    }
 
     public Category(String name, int victoryPointReduction, List<String> victoryItems) {
         this.name = name;
@@ -37,4 +45,20 @@ public class Category {
     public List<String> getVictoryItems() {
         return victoryItems;
     }
+
+    /**
+     *
+     * If category wins a round, it's total is reduced by the victory point reduction and it returns either
+     * the next item in the victory items, or the category name.
+     *
+     * @return either the next victory item or the category name
+     */
+    public String winAction() {
+        totalPoints -= victoryPointReduction;
+        if (victoryItems.size() > 0) {
+            return victoryItems.remove(0);
+        }
+        return name;
+    }
+
 }
