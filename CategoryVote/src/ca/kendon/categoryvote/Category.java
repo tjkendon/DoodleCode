@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Category {
+public class Category implements Comparable<Category> {
 
     final private String name;
 
@@ -61,4 +61,8 @@ public class Category {
         return name;
     }
 
+    @Override
+    public int compareTo(Category o) {
+        return this.totalPoints - o.totalPoints;
+    }
 }
