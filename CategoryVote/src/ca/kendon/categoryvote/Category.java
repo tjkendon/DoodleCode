@@ -4,12 +4,33 @@ import java.util.List;
 
 public class Category {
 
-    private String name;
+    final private String name;
 
-    private int victoryPointReduction;
+    final private int victoryPointReduction;
 
-    private int totalPoints;
+    private int totalPoints = 0;
 
-    List<String> victoryItems;
+    final List<String> victoryItems;
 
+    public Category(String name, int victoryPointReduction, List<String> victoryItems) {
+        this.name = name;
+        this.victoryPointReduction = victoryPointReduction;
+        this.victoryItems = victoryItems;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getVictoryPointReduction() {
+        return victoryPointReduction;
+    }
+
+    public int getTotalPoints() {
+        return totalPoints;
+    }
+
+    public List<String> getVictoryItems() {
+        return victoryItems;
+    }
 }
