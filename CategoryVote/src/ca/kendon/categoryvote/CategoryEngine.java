@@ -13,18 +13,15 @@ public class CategoryEngine {
         this.categories = categories;
     }
 
-    public void evaluateQuestions(List<Question> questions) {
+    public List<String> evaluate(List<Response> responses, int winners) {
 
-        for (Question q : questions) {
-            for (Map.Entry<Category, Integer> e : q.getChoice().getPointAssignment().entrySet()) {
+        for (Response r : responses) {
+            for (Map.Entry<Category, Integer> e : r.getChoice().getPointAssignment().entrySet()) {
                 if (categories.contains(e.getKey())) {
                     e.getKey().addPoints(e.getValue());
                 }
             }
         }
-    }
-
-    public List<String> evaluateCategories(int winners) {
         List<String> results = new ArrayList<>();
         for (;winners > 0; winners--) {
             Collections.sort(categories);
@@ -33,8 +30,12 @@ public class CategoryEngine {
             }
         }
         return results;
-
     }
+
+
+
+
+
 
 
 }

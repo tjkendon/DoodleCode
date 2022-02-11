@@ -67,6 +67,6 @@ public class Category implements Comparable<Category> {
 
     @Override
     public int compareTo(Category o) {
-        return this.totalPoints - o.totalPoints;
+        return o.totalPoints - this.totalPoints;
     }
 }
