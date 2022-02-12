@@ -3,6 +3,7 @@ package ca.kendon.categoryvote;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 public class LineDriver {
 
@@ -70,12 +71,17 @@ public class LineDriver {
         Response r1_6 = new Response(q1, b);
 
         ArrayList<Response> responses = new ArrayList<>();
-        responses.add(r1_1);
-        responses.add(r1_2);
-        responses.add(r1_3);
-        responses.add(r1_4);
-        responses.add(r1_5);
-        responses.add(r1_6);
+//        responses.add(r1_1);
+//        responses.add(r1_2);
+//        responses.add(r1_3);
+//        responses.add(r1_4);
+//        responses.add(r1_5);
+//        responses.add(r1_6);
+
+        Random r = new Random();
+        for (int i = 0; i < 10; i++) {
+            responses.add(new Response(q1, o.get(r.nextInt(o.size()))));
+        }
 
         ArrayList<Category> cats = new ArrayList<>();
         cats.add(cat1);
