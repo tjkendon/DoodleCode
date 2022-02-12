@@ -5,11 +5,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class CategoryEngine {
+public class VotingEngine {
 
     final private List<Category> categories;
 
-    public CategoryEngine(List<Category> categories) {
+    public VotingEngine(List<Category> categories) {
+
         this.categories = categories;
     }
 

@@ -88,7 +88,7 @@ public class LineDriver {
         cats.add(cat2);
         cats.add(cat3);
 
-        CategoryEngine engine = new CategoryEngine(cats);
+        VotingEngine engine = new VotingEngine(cats);
         List<String> results = engine.evaluate(responses, 4);
         System.out.println(results);
 
