@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Question {
 
-    private String name;
-    private String stem;
-    private List<Option> options;
+    private final String name;
+    private final String stem;
+    private final List<Option> options;
 
 
     public Question(String name, String stem, List<Option> options) {
