@@ -11,7 +11,7 @@ public class OptionLoader {
 
 
         List<String> optionData = new ArrayList<>(Arrays.asList(optionString.split(OPTION_FIELD_SEPARATOR)));
-        String text = optionData.remove(0);
+        String text = optionData.remove(0).trim();
 
         Map<Category, Integer> assignmentValues = new HashMap<>();
         for (String data : optionData) {
