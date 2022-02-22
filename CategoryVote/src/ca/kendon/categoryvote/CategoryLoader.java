@@ -1,9 +1,8 @@
 package ca.kendon.categoryvote;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 public class CategoryLoader {
 
@@ -22,5 +21,18 @@ public class CategoryLoader {
 
         return new Category(name, points, ccd);
 
+    }
+
+    public static List<Category> readFile(File file) throws FileNotFoundException {
+        List<Category> categories = new ArrayList<>();
+
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextLine()) {
+            categories.add(load(scanner.nextLine()));
+        }
+
+        scanner.close();
+
+        return categories;
     }
 }
