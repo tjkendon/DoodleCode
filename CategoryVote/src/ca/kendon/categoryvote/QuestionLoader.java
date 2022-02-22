@@ -10,9 +10,9 @@ public class QuestionLoader {
 
     public static Question load(String questionString, List<Category> categories) {
 
-        List<String> questionData = Arrays.asList(questionString.split(QUESTION_FIELD_SEPERATER));
-        String name = questionData.remove(0);
-        String stem = questionData.remove(0);
+        List<String> questionData = new ArrayList<>(Arrays.asList(questionString.split(QUESTION_FIELD_SEPERATER)));
+        String name = questionData.remove(0).trim();
+        String stem = questionData.remove(0).trim();
         List<Option> options = new ArrayList<>();
         while (!questionData.isEmpty()) {
             options.add(OptionLoader.load(questionData.remove(0), categories));

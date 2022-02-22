@@ -1,9 +1,6 @@
 package ca.kendon.categoryvote;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class OptionLoader {
 
@@ -13,7 +10,7 @@ public class OptionLoader {
     public static Option load(String optionString, List<Category> categories) {
 
 
-        List<String> optionData = Arrays.asList(optionString.split(OPTION_FIELD_SEPARATOR));
+        List<String> optionData = new ArrayList<>(Arrays.asList(optionString.split(OPTION_FIELD_SEPARATOR)));
         String text = optionData.remove(0);
 
         Map<Category, Integer> assignmentValues = new HashMap<>();
