@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Category implements Comparable<Category> {
+public class Category {
 
     final private String name;
 
     final private int victoryPointReduction;
-
-    private int totalPoints = 0;
 
     final List<String> victoryItems;
 
@@ -26,10 +24,6 @@ public class Category implements Comparable<Category> {
         this.victoryItems = victoryItems;
     }
 
-    public void addPoints(int points) {
-        this.totalPoints += points;
-    }
-
     public String getName() {
         return name;
     }
@@ -38,36 +32,8 @@ public class Category implements Comparable<Category> {
         return victoryPointReduction;
     }
 
-    public int getTotalPoints() {
-        return totalPoints;
-    }
-
     public List<String> getVictoryItems() {
         return victoryItems;
-    }
-
-    public boolean canWin() {
-        return totalPoints >= victoryPointReduction;
-    }
-
-    /**
-     *
-     * If category wins a round, it's total is reduced by the victory point reduction and it returns either
-     * the next item in the victory items, or the category name.
-     *
-     * @return either the next victory item or the category name
-     */
-    public String winAction() {
-        totalPoints -= victoryPointReduction;
-        if (victoryItems.size() > 0) {
-            return victoryItems.remove(0);
-        }
-        return name;
-    }
-
-    @Override
-    public int compareTo(Category o) {
-        return o.totalPoints - this.totalPoints;
     }
 
     @Override
@@ -78,7 +44,6 @@ public class Category implements Comparable<Category> {
         Category category = (Category) o;
 
         if (victoryPointReduction != category.victoryPointReduction) return false;
-        if (totalPoints != category.totalPoints) return false;
         if (name != null ? !name.equals(category.name) : category.name != null) return false;
         return victoryItems != null ? victoryItems.equals(category.victoryItems) : category.victoryItems == null;
     }
@@ -87,7 +52,6 @@ public class Category implements Comparable<Category> {
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + victoryPointReduction;
-        result = 31 * result + totalPoints;
         result = 31 * result + (victoryItems != null ? victoryItems.hashCode() : 0);
         return result;
     }
