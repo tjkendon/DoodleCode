@@ -66,7 +66,7 @@ public class QuestionLoaderTest {
 
         Question expected = new Question("A1", "What do?", options);
 
-        String questionString = "Question 1, What do?, A1-C1:5-C2:3-C3:1, A2-C1:2-C2:10, A3-C1:3-C2-4:C3-5";
+        String questionString = "Question 1, What do?, A1-C1:5-C2:3-C3:1, A2-C1:2-C2:10, A3-C1:3-C2:4-C3:5";
         Question actual = QuestionLoader.load(questionString, categories);
 
         assertEquals(expected, actual);
