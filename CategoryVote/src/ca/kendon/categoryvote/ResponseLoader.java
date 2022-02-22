@@ -1,0 +1,30 @@
+package ca.kendon.categoryvote;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ResponseLoader {
+
+    private static final String RESPONSE_FIELD_SEPARATOR = ",";
+
+    public static Response load(String responseString, List<Question> questions) {
+
+        List<String> responseData = new ArrayList<>(Arrays.asList(responseString.split(RESPONSE_FIELD_SEPARATOR)));
+
+        for (Question q : questions) {
+            if (q.getName().equals(responseData.get(0).trim())) {
+                for (Option o : q.getOptions()) {
+                    System.out.println(o.getText());
+                    System.out.println(responseData.get(1).trim());
+                    if (o.getText().equals(responseData.get(1).trim())) {
+                        return new Response(q, o);
+                    }
+                }
+            }
+        }
+        throw new IllegalArgumentException("Not able to find matching question or option: " + responseString);
+
+    }
+
+}
