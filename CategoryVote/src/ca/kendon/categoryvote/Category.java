@@ -69,4 +69,26 @@ public class Category implements Comparable<Category> {
     public int compareTo(Category o) {
         return o.totalPoints - this.totalPoints;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Category category = (Category) o;
+
+        if (victoryPointReduction != category.victoryPointReduction) return false;
+        if (totalPoints != category.totalPoints) return false;
+        if (name != null ? !name.equals(category.name) : category.name != null) return false;
+        return victoryItems != null ? victoryItems.equals(category.victoryItems) : category.victoryItems == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + victoryPointReduction;
+        result = 31 * result + totalPoints;
+        result = 31 * result + (victoryItems != null ? victoryItems.hashCode() : 0);
+        return result;
+    }
 }
