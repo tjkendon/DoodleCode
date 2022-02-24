@@ -1,8 +1,11 @@
 package ca.kendon.categoryvote;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class ResponseLoader {
 
@@ -15,8 +18,6 @@ public class ResponseLoader {
         for (Question q : questions) {
             if (q.getName().equals(responseData.get(0).trim())) {
                 for (Option o : q.getOptions()) {
-                    System.out.println(o.getText());
-                    System.out.println(responseData.get(1).trim());
                     if (o.getText().equals(responseData.get(1).trim())) {
                         return new Response(q, o);
                     }
@@ -25,6 +26,19 @@ public class ResponseLoader {
         }
         throw new IllegalArgumentException("Not able to find matching question or option: " + responseString);
 
+    }
+
+    public static List<Response> readFile(File file, List<Question> questions) throws FileNotFoundException {
+        List<Response> responses = new ArrayList<>();
+
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextLine()) {
+            responses.add(load(scanner.nextLine(), questions));
+        }
+
+        scanner.close();
+
+        return responses;
     }
 
 }
