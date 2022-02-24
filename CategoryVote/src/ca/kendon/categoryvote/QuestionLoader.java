@@ -1,8 +1,11 @@
 package ca.kendon.categoryvote;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class QuestionLoader {
 
@@ -19,6 +22,19 @@ public class QuestionLoader {
         }
         return new Question(name, stem, options);
 
+    }
+
+    public static List<Question> readFile(File file, List<Category> categories) throws FileNotFoundException {
+        List<Question> questions = new ArrayList<>();
+
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextLine()) {
+            questions.add(load(scanner.nextLine(), categories));
+        }
+
+        scanner.close();
+
+        return questions;
     }
 
 }
