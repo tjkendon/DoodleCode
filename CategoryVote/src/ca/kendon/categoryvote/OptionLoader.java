@@ -18,11 +18,10 @@ public class OptionLoader {
             List<String> categoryData = Arrays.asList(data.split(MAP_FIELD_SEPARATOR));
             for (Category c : categories) {
                 if (c.getName().equals(categoryData.get(0))) {
-                    assignmentValues.put(c, Integer.parseInt(categoryData.get(1)));
+                    assignmentValues.put(c, Integer.parseInt(categoryData.get(1).trim()));
                 }
             }
         }
-
 
         return new Option(text, assignmentValues);
 
