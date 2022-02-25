@@ -2,6 +2,7 @@ package ca.kendon.categoryvote;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,4 +42,14 @@ public class ResponseLoader {
         return responses;
     }
 
+    public static void writeFile(File responseFile, List<Response> responses) throws FileNotFoundException {
+
+        PrintStream print = new PrintStream(responseFile);
+        for (Response r : responses) {
+            print.println(r.getQuestion().getName() + ", " + r.getChoice().getText());
+        }
+        print.close();
+
+
+    }
 }
