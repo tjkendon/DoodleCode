@@ -65,7 +65,9 @@ public class CommandLineQuestionAsker {
             }
             System.out.print("Choice: ");
             int choice = reader.nextInt();
-            System.out.println("Picked " + q.getOptions().get(choice - 1));
+            Response r = new Response(q, q.getOptions().get(choice - 1));
+            responses.add(r);
+            System.out.println("Picked " + r.getChoice().getText());
             System.out.println();
         }
 
