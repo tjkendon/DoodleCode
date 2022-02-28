@@ -34,7 +34,11 @@ public class CommandLineResultCalculator {
 
         categories = CategoryLoader.readFile(categoryFile);
         questions = QuestionLoader.readFile(questionFile, categories);
-        responses = ResponseLoader.readFile(responseFile, questions);
+        if (responseFile.isDirectory()) {
+            responses = ResponseLoader.readDirectory(responseFile, questions);
+        } else {
+            responses = ResponseLoader.readFile(responseFile, questions);
+        }
 
     }
 

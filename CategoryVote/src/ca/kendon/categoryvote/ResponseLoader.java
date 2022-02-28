@@ -1,8 +1,6 @@
 package ca.kendon.categoryvote;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -51,5 +49,18 @@ public class ResponseLoader {
         print.close();
 
 
+    }
+
+    public static List<Response> readDirectory(File responseDirectory, List<Question> questions) throws FileNotFoundException {
+        List<Response> allResponses = new ArrayList<>();
+        for (File f : responseDirectory.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".response");
+            }
+        })) {
+         allResponses.addAll(readFile(f, questions));
+        }
+        return allResponses;
     }
 }
