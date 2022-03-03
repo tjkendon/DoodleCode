@@ -15,6 +15,7 @@ public class TestMain {
         frc.addMeal("Test5", 50);
         frc.addMeal("Test6", 60);
 
+        // map for counting outcomes
         Map<String, Integer> results = new HashMap<>();
         results.put("Test1", 0);
         results.put("Test2", 0);
@@ -23,6 +24,7 @@ public class TestMain {
         results.put("Test5", 0);
         results.put("Test6", 0);
 
+        // draw 1000 meals and count how often each type is pulled
         for (int i = 0; i < 1000; i++) {
             String name = frc.chooseMeal().getName();
             results.put(name, results.get(name)+1);
