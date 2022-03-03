@@ -26,6 +26,10 @@ public class FoodORacOCycle {
         meals.add(new Meal(name, weight));
     }
 
+    public void addMeals(List<Meal> newMeals) {
+        meals.addAll(newMeals);
+    }
+
     /**
      *
      * Returns a randomly selected meal tilted towards the meals with higher weights

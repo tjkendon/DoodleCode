@@ -31,6 +31,8 @@ public class ForocEngine {
 
     public Meal choose() {
         FoodORacOCycle foodORacOCycle = new FoodORacOCycle();
+        foodORacOCycle.addMeals(meals);
+        return foodORacOCycle.chooseMeal();
     }
 
 }
