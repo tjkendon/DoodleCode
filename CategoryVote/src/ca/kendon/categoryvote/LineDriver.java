@@ -1,5 +1,7 @@
 package ca.kendon.categoryvote;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -91,6 +93,26 @@ public class LineDriver {
         VotingEngine engine = new VotingEngine(cats);
         List<String> results = engine.evaluate(responses, 4);
         System.out.println(results);
+
+        List<Question> questions = new ArrayList<>();
+        questions.add(q1);
+        Response lineResponse = ResponseLoader.load("ABCD, A?", questions);
+
+        try {
+            List<Category> categories = CategoryLoader.readFile(new File("data/ogre_categories.data"));
+            System.out.println(categories);
+            List<Question> loadQuestions =
+                    QuestionLoader.readFile(new File("data/ogre_questions.data"), categories);
+            System.out.println(loadQuestions);
+            List<Response> loadResponses =
+                    ResponseLoader.readFile(new File("data/ogre_responses.data"), loadQuestions);
+            System.out.println(loadResponses);
+            VotingEngine engine2 = new VotingEngine(categories);
+            List<String> results2 = engine2.evaluate(loadResponses, 4);
+            System.out.println(results2);
+        } catch (FileNotFoundException e) {
+            System.out.println("no file");
+        }
 
     }
 
