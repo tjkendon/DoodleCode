@@ -1,5 +1,7 @@
 package ca.kendon.food_o_rac_o_cycle;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  *
  * Contains the information about meals, including a name and a weight.
@@ -26,6 +28,12 @@ public class Meal {
     public Meal(String name, int weight) {
         this.name = name;
         this.weight = weight;
+    }
+
+    public Meal(@NotNull String mealString) {
+        String[] nameData = mealString.split(", ");
+        this.name = nameData[0].trim();
+        this.weight = Integer.parseInt(nameData[1].trim());
     }
 
     /**
