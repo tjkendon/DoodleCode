@@ -7,25 +7,24 @@ import java.util.*;
  * A generator for a random meal based on the weighted probabilities.
  *
  */
-public class FoodORacOCycle {
+public class FoodORacOCycleChooser {
 
     /**
      * List of all possible meals
      */
     List<Meal> meals = new ArrayList<>();
 
-    Random r = new Random();
-
     /**
-     * Adds a new meal to the list with the given weight.
-     *
-     * @param name the name of the meal
-     * @param weight weight with which it should be selected
+     * Random for selecting meals
      */
-    public void addMeal(String name, int weight) {
-        meals.add(new Meal(name, weight));
-    }
-
+    Random r = new Random();
+    
+    /**
+     *
+     * Adds a list of new meals to chooser.
+     *
+     * @param newMeals the list of meals to add.
+     */
     public void addMeals(List<Meal> newMeals) {
         meals.addAll(newMeals);
     }
