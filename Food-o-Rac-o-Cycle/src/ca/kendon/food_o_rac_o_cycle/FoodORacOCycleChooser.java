@@ -18,7 +18,7 @@ public class FoodORacOCycleChooser {
      * Random for selecting meals
      */
     Random r = new Random();
-    
+
     /**
      *
      * Adds a list of new meals to chooser.

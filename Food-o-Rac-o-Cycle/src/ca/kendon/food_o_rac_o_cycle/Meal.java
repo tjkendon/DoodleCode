@@ -30,6 +30,14 @@ public class Meal {
         this.weight = weight;
     }
 
+    /**
+     *
+     * Creates a new meal with the name and weight parsed from the string.
+     *
+     * Format of string is: name, weight
+     *
+     * @param mealString the string to parse into name and weight
+     */
     public Meal(@NotNull String mealString) {
         String[] nameData = mealString.split(", ");
         this.name = nameData[0].trim();

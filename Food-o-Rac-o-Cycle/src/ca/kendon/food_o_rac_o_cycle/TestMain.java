@@ -2,7 +2,9 @@ package ca.kendon.food_o_rac_o_cycle;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class TestMain {
@@ -15,7 +17,7 @@ public class TestMain {
     public static void testForocEngine(String[] args) {
 
         try {
-            ForocEngine foroc = new ForocEngine(new File("data/testmeals.data"));
+            FoodORacOCycleEngine foroc = new FoodORacOCycleEngine(new File("data/testmeals.data"));
             System.out.println(foroc.choose());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -25,13 +27,17 @@ public class TestMain {
 
     public static void testForoc(String[] args) {
 
-        FoodORacOCycle frc = new FoodORacOCycle();
-        frc.addMeal("Test1", 10);
-        frc.addMeal("Test2", 20);
-        frc.addMeal("Test3", 30);
-        frc.addMeal("Test4", 40);
-        frc.addMeal("Test5", 50);
-        frc.addMeal("Test6", 60);
+        FoodORacOCycleChooser frc = new FoodORacOCycleChooser();
+
+        List<Meal> meals = new ArrayList<>();
+        meals.add(new Meal("Test1", 10));
+        meals.add(new Meal("Test2", 10));
+        meals.add(new Meal("Test3", 10));
+        meals.add(new Meal("Test4", 10));
+        meals.add(new Meal("Test5", 10));
+        meals.add(new Meal("Test6", 10));
+
+        frc.addMeals(meals);
 
         // map for counting outcomes
         Map<String, Integer> results = new HashMap<>();
