@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class ForocEngine {
 
-    List<Meal> meals;
+    private List<Meal> meals;
 
     public ForocEngine(File mealFile) throws FileNotFoundException {
         meals = loadMeals(mealFile);

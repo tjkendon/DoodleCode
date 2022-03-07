@@ -1,11 +1,29 @@
 package ca.kendon.food_o_rac_o_cycle;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class TestMain {
 
     public static void main(String[] args) {
+        testForoc(args);
+        testForocEngine(args);
+    }
+
+    public static void testForocEngine(String[] args) {
+
+        try {
+            ForocEngine foroc = new ForocEngine(new File("data/testmeals.data"));
+            System.out.println(foroc.choose());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void testForoc(String[] args) {
 
         FoodORacOCycle frc = new FoodORacOCycle();
         frc.addMeal("Test1", 10);
