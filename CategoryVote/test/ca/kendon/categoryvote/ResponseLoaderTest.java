@@ -71,7 +71,7 @@ public class ResponseLoaderTest {
         List<Question> questions = new ArrayList<>();
         questions.add(q1);
 
-        Response actual = ResponseLoader.load("ABCD, A?", questions);
+        Response actual = ResponseLoader.parseResponse("ABCD, A?", questions);
 
         Response expected = new Response(q1, a);
 

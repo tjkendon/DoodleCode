@@ -96,7 +96,7 @@ public class LineDriver {
 
         List<Question> questions = new ArrayList<>();
         questions.add(q1);
-        Response lineResponse = ResponseLoader.load("ABCD, A?", questions);
+        Response lineResponse = ResponseLoader.parseResponse("ABCD, A?", questions);
 
         try {
             List<Category> categories = CategoryLoader.readFile(new File("data/ogre_categories.data"));
