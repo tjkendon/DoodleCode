@@ -1,19 +1,54 @@
 package ca.kendon.categoryvote;
 
+import org.jetbrains.annotations.NotNull;
+
+/**
+ *
+ * Records which option a person chose for a given question.
+ *
+ */
 public class Response {
 
+    /**
+     * The question being answered
+     */
     private final Question question;
+    /**
+     * The selected Option
+     */
     private final Option choice;
 
-    public Response(Question question, Option choice) {
-        this.question = question;
-        this.choice = choice;
+    /**
+     *
+     * Creates a new response with the given question and selected option.
+     *
+     * @param question the question the choice is for
+     * @param choice the option which was chosen
+     */
+    public Response(@NotNull Question question, Option choice) {
+        if (question.getOptions().contains(choice)) {
+            this.question = question;
+            this.choice = choice;
+        }
+        throw new IllegalArgumentException("Choice must be an option of question" + question + ":" +choice);
     }
 
+    /**
+     *
+     * Returns the question the choice is for.
+     *
+     * @return the question the choice is for.
+     */
     public Question getQuestion() {
         return question;
     }
 
+    /**
+     *
+     * Returns the chosen option.
+     *
+     * @return the chosen option
+     */
     public Option getChoice() {
         return choice;
     }
