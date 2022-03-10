@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  *
- * Records a question, including the options to answer that question
+ * A question, including the options to answer that question
  *
  */
 
