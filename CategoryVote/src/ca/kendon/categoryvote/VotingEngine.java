@@ -42,15 +42,15 @@ public class VotingEngine {
     public List<String> evaluate(List<Response> responses, int winners) {
 
         // build list of all vote counts for all categories
-        List<CategoryVotes> categoryVotes = new ArrayList<>();
+        List<CategoryVoteCounter> categoryVotes = new ArrayList<>();
         for (Category c : categories) {
-            categoryVotes.add(new CategoryVotes(c));
+            categoryVotes.add(new CategoryVoteCounter(c));
         }
 
         // process all responses and add appropriate points to the respective categories
         for (Response r : responses) {
             for (Map.Entry<Category, Integer> e : r.getChoice().getPointAssignment().entrySet()) {
-                for (CategoryVotes v : categoryVotes) {
+                for (CategoryVoteCounter v : categoryVotes) {
                     if (v.getCateogory().equals(e.getKey())) {
                         v.addPoints(e.getValue());
                     }

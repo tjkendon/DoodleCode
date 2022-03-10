@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CommandLineQuestionAsker {
+public class CategoryVoteQuestionAsker {
 
     public static void main(String[] args) {
 
@@ -16,7 +16,7 @@ public class CommandLineQuestionAsker {
         File responseFile = new File(args[2]);
 
         try {
-            CommandLineQuestionAsker asker = new CommandLineQuestionAsker(categoryFile, questionFile, responseFile);
+            CategoryVoteQuestionAsker asker = new CategoryVoteQuestionAsker(categoryFile, questionFile, responseFile);
             asker.run();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -30,7 +30,7 @@ public class CommandLineQuestionAsker {
 
     private File responseFile;
 
-    public CommandLineQuestionAsker(File categoryFile, File questionFile, File responseFile) throws FileNotFoundException {
+    public CategoryVoteQuestionAsker(File categoryFile, File questionFile, File responseFile) throws FileNotFoundException {
 
             categories = CategoryLoader.readFile(categoryFile);
             questions = QuestionLoader.readFile(questionFile, categories);

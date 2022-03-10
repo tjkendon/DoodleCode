@@ -2,20 +2,28 @@ package ca.kendon.categoryvote;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
 
-public class CommandLineResultCalculator {
+public class CategoryVoteResultCalgulator {
 
 
+    /**
+     * List of loaded categories
+     */
     private List<Category> categories;
+    /**
+     * List of loaded questions
+     */
     private List<Question> questions;
+    /**
+     * List of L
+     */
     private List<Response> responses;
 
     public static void main(String[] args) {
 
         try {
-            CommandLineResultCalculator calculator = new CommandLineResultCalculator(
+            CategoryVoteResultCalgulator calculator = new CategoryVoteResultCalgulator(
                     new File(args[0]),
                     new File(args[1]),
                     new File(args[2]));
@@ -29,7 +37,7 @@ public class CommandLineResultCalculator {
 
     }
 
-    public CommandLineResultCalculator(File categoryFile, File questionFile, File responseFile)
+    public CategoryVoteResultCalgulator(File categoryFile, File questionFile, File responseFile)
             throws FileNotFoundException {
 
         categories = CategoryLoader.readFile(categoryFile);
