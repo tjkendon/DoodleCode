@@ -2,27 +2,68 @@ package ca.kendon.categoryvote;
 
 import java.util.List;
 
+/**
+ *
+ * Records a question, including the options to answer that question
+ *
+ */
+
 public class Question {
 
+    /**
+     * Short display name for the question, used as the identifier
+     */
     private final String name;
+    /**
+     * The text of the question
+     */
     private final String stem;
+    /**
+     * The list of options
+     */
     private final List<Option> options;
 
 
+    /**
+     *
+     * Creates a new question.
+     *
+     * @param name a short identifier for the question
+     * @param stem the main text of the question
+     * @param options the possible answers to the question
+     */
     public Question(String name, String stem, List<Option> options) {
         this.name = name;
         this.stem = stem;
         this.options = options;
     }
 
+    /**
+     *
+     * The identifier for the question
+     *
+     * @return the identifying name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * The text of the question
+     *
+     * @return the question text
+     */
     public String getStem() {
         return stem;
     }
 
+    /**
+     *
+     * The possible answers to the question
+     *
+     * @return the possible answers to the question
+     */
     public List<Option> getOptions() {
         return options;
     }
