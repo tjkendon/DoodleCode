@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * Loader to manage reading response information from files.
+ * Manages response information in text and files.
  *
  */
 public class ResponseLoader {

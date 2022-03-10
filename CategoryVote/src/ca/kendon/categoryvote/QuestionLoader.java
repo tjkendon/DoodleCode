@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * Loader to manage reading question data from files.
+ * Manages question information in text and files.
  *
  */
 
@@ -19,7 +19,7 @@ public class QuestionLoader {
 
     /**
      *
-     * Parsing a question from a string, checking that it matches the given list of categories
+     * Parses a question from a string, checking that it matches the given list of categories
      *
      * @param questionString the string with the infromation for the question
      * @param categories the list of categories to which points can be assigned in the question
