@@ -4,6 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
 
+/**
+ *
+ * Main class to tabulate responses and calculate category vote results
+ *
+ */
 public class CategoryVoteResultCalculator {
 
 
