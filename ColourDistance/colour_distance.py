@@ -6,7 +6,9 @@ def colour_value ( name ):
 
 def colour_distance ( colour_1, colour_2 ):
 	"Find the distance between these 2 colours (as points)"
-	return math.sqrt( (colour_2[0]-colour_1[0])*(colour_2[0]-colour_1[0]) + (colour_2[1]-colour_1[1])*(colour_2[1]-colour_1[1]) + (colour_2[2]-colour_1[2])*(colour_2[2]-colour_1[2]) )
+	return math.sqrt( (colour_2[0]-colour_1[0])*(colour_2[0]-colour_1[0]) + 
+			(colour_2[1]-colour_1[1])*(colour_2[1]-colour_1[1]) + 
+			(colour_2[2]-colour_1[2])*(colour_2[2]-colour_1[2]) )
 
 colour_name_1 = input("Colour 1: ")
 colour_name_2 = input("Colour 2: ")
