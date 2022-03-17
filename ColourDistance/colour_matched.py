@@ -15,12 +15,30 @@ def readfile ( filename ):
 	colours = {}
 	with open(filename) as colour_file:
 		lines = colour_file.readlines()
-		print(lines)
 		for x in lines:
 			s = x.split(",")
 			colours[s[0].strip()] = s[1].strip()
 	
-	print(colours)
+	return colours
 
-readfile('data/colours.csv')
+def find_closest_colour ( colour, colour_db ):
+	"Find the closest colour(s) to the given colour"
+	closest_distance = 500	
+	closest = []
+	for db_colour in colour_db :
+		distance = colour_distance(colour_value(colour), 
+				colour_value(db_colour))
+		if distance < closest_distance:
+			# reset
+			closest = []
+			closest_distance = distance 
+		if distance <= closest_distance:
+			closest.append(colour_db[db_colour])
+	return closest	
+
+target = input("Which Colour? ")
+
+colours = readfile('data/colours.csv')
+closest = find_closest_colour(target, colours)
+print(closest)
 
