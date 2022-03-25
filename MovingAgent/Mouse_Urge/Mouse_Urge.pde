@@ -3,8 +3,7 @@ PVector position;
 PVector velocity;
 PVector acceleration;
 
-PVector mouse_urge;
-
+float top_speed = 5;
 float size = 66;
 
 int field_height = 400;
@@ -25,10 +24,17 @@ void draw() {
   noStroke();
   
   velocity.add(acceleration);
+  velocity.limit(top_speed);
   position.add(velocity);
   
   circle( position.x, position.y, size);
           
   
+    PVector mouse = new PVector(mouseX,mouseY);
+    PVector mid = new PVector(200, 200);
+     acceleration = PVector.sub(mouse,position);
+     acceleration.add(PVector.sub(mid, position));
+    // Set magnitude of acceleration
+    acceleration.setMag(0.1);
   
 }
