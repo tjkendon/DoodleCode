@@ -8,10 +8,19 @@ float v_y = -2.1;
 float a_x = 0;
 float a_y = 0.2;
 
-float easing = 0.05;
+float size = 66;
+
+int field_height = 400;
+int field_width = 400;
+
+float floor_friction = 0.95;
+float wall_friction = 0.9;
 
 void setup() {
   size(400, 400);
+  
+  v_x = random(-3, 3); 
+  v_y = random(-3, 3);
 }
 
 void draw() {
@@ -23,10 +32,14 @@ void draw() {
   v_y += a_y;
   
   circle( pos_x += v_x, pos_y += v_y,
-          66);
+          size);
           
-  if ((pos_y + 33) >= 400) {
-    v_y = -v_y;
+  if (((pos_y + size / 2) >= field_height) || ((pos_y - size / 2) <= 0)) {
+    v_y = -v_y * floor_friction;
+    println(pos_y + " " + v_y);
+  }
+  if (((pos_x + size / 2) >= field_width) || ((pos_x - size / 2) <= 0)) {
+    v_x = -v_x * wall_friction;
   }
   
   
