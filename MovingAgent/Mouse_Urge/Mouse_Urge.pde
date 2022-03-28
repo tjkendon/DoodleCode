@@ -32,9 +32,8 @@ void draw() {
   
     PVector mouse = new PVector(mouseX,mouseY);
     PVector mid = new PVector(200, 200);
-     acceleration = PVector.sub(mouse,position);
-     acceleration.add(PVector.sub(mid, position));
-    // Set magnitude of acceleration
+    acceleration = PVector.sub(mouse,position);
+    acceleration.add(PVector.sub(mid, position));
     acceleration.setMag(0.1);
   
 }
