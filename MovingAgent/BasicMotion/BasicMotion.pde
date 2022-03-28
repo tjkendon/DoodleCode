@@ -33,10 +33,10 @@ void draw() {
   
   circle( pos_x += v_x, pos_y += v_y,
           size);
-          
-  if (((pos_y + size / 2) >= field_height) || ((pos_y - size / 2) <= 0)) {
-    v_y = -v_y * floor_friction;
-    println(pos_y + " " + v_y);
+  println(pos_y + " " + v_y);      
+  if (((pos_y + (size / 2)) >= field_height) || ((pos_y - size / 2) <= 0)) {
+    v_y = -abs(v_y) * floor_friction;
+    pos_y = field_height - (size / 2);
   }
   if (((pos_x + size / 2) >= field_width) || ((pos_x - size / 2) <= 0)) {
     v_x = -v_x * wall_friction;
