@@ -1,3 +1,5 @@
+package ca.kendon.competitionrank;
+
 public class Option {
 
     private String Name;
