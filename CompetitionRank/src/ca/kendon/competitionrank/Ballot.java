@@ -8,13 +8,11 @@ public class Ballot {
 
     private Map<Option, Integer> options;
 
-    public Ballot (List<Option> options) {
-        this.options = new HashMap<>();
-        for (Option o : options) {
-            this.options.put(o, 0);
-        }
+    public void putOption(Option o, int count) {
+        options.put(o, count);
     }
 
-
-
+    public Map<Option, Integer> getOptions() {
+        return options;
+    }
 }
