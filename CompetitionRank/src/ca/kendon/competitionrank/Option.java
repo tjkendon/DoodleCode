@@ -2,13 +2,17 @@ package ca.kendon.competitionrank;
 
 public class Option {
 
-    private String Name;
+    private String name;
 
     public Option(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getName() {
-        return Name;
+        return name;
+    }
+
+    public String toString() {
+        return name;
     }
 }
