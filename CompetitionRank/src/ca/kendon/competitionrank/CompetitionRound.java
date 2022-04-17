@@ -50,20 +50,22 @@ public class CompetitionRound {
 
     private void rankOptions() {
         Map<Option, Integer> allOptions = new HashMap<>();
+        ranked = new HashMap<>();
         allOptions.putAll(options);
 
         for (int i = 1; i <= 4; ) {
             int max = -1;
             ArrayList<Option> pullOptions = new ArrayList<>();
             for (Map.Entry<Option, Integer> e : allOptions.entrySet()) {
+                if (e.getValue() == max) {
+                    pullOptions.add(e.getKey());
+                }
                 if (e.getValue() > max) {
                     max = e.getValue();
                     pullOptions = new ArrayList<>();
                     pullOptions.add(e.getKey());
                 }
-                if (e.getValue() == max) {
-                    pullOptions.add(e.getKey());
-                }
+
             }
             ranked.put(i, pullOptions);
             for (Option o: pullOptions) {
