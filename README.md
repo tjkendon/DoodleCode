@@ -8,6 +8,8 @@ A collection of small programs for fun and demonstration purposes.
    * Counts characters in a piece of text
 * [Colour Distance](https://github.com/tjkendon/DoodleCode/tree/main/ColourDistance)
    * Calculates the distance between two colours, and does some matching and possibly clustering for Perler purposes.
+* [Competition Rank](https://github.com/tjkendon/DoodleCode/tree/main/CompetitionRank)
+   * Space to play with quality of competition measures.  
 * [Moving Agent](https://github.com/tjkendon/DoodleCode/tree/main/MovingAgent)
    * Experiments (and practice) making things move.
 * [Pixel Counter](https://github.com/tjkendon/DoodleCode/tree/main/PixelCount)
