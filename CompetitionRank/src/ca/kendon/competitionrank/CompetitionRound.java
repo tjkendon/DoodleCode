@@ -1,14 +1,11 @@
 package ca.kendon.competitionrank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CompetitionRound {
 
     private Map<Option, Integer> options;
-    private Map<Integer, List<Option>> ranked;
+    private Map<Integer, Set<Option>> ranked;
 
     public CompetitionRound () {
         options = new HashMap<>();
@@ -40,7 +37,7 @@ public class CompetitionRound {
         return -1;
     }
 
-    protected Map<Integer, List<Option>> getRanked() {
+    protected Map<Integer, Set<Option>> getRanked() {
         if (ranked == null) {
             rankOptions();
         }
@@ -54,14 +51,14 @@ public class CompetitionRound {
 
         for (int i = 1; i <= 4; ) {
             int max = -1;
-            ArrayList<Option> pullOptions = new ArrayList<>();
+            HashSet<Option> pullOptions = new HashSet<>();
             for (Map.Entry<Option, Integer> e : allOptions.entrySet()) {
                 if (e.getValue() == max) {
                     pullOptions.add(e.getKey());
                 }
                 if (e.getValue() > max) {
                     max = e.getValue();
-                    pullOptions = new ArrayList<>();
+                    pullOptions = new HashSet<>();
                     pullOptions.add(e.getKey());
                 }
 

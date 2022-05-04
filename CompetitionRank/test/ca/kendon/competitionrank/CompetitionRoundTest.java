@@ -2,10 +2,7 @@ package ca.kendon.competitionrank;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,19 +22,19 @@ class CompetitionRoundTest {
         test.putOption(c, 2);
         test.putOption(d, 1);
 
-        Map<Integer, List<Option>> expected = new HashMap<>();
-        List<Option> listA = new ArrayList<>();
-        listA.add(a);
-        expected.put(1, listA);
-        List<Option> listB = new ArrayList<>();
-        listB.add(b);
-        expected.put(2, listB);
-        List<Option> listC = new ArrayList<>();
-        listC.add(c);
-        expected.put(3, listC);
-        List<Option> listD = new ArrayList<>();
-        listD.add(d);
-        expected.put(4, listD);
+        Map<Integer, Set<Option>> expected = new HashMap<>();
+        Set<Option> setA = new HashSet<>();
+        setA.add(a);
+        expected.put(1, setA);
+        Set<Option> setB = new HashSet<>();
+        setB.add(b);
+        expected.put(2, setB);
+        Set<Option> setC = new HashSet<>();
+        setC.add(c);
+        expected.put(3, setC);
+        Set<Option> setD = new HashSet<>();
+        setD.add(d);
+        expected.put(4, setD);
 
         assertEquals(expected, test.getRanked(), "Testing four options each in their own rank");
 
@@ -57,13 +54,13 @@ class CompetitionRoundTest {
         test.putOption(c, 3);
         test.putOption(d, 3);
 
-        Map<Integer, List<Option>> expected = new HashMap<>();
-        List<Option> listA = new ArrayList<>();
-        listA.add(a);
-        listA.add(b);
-        listA.add(c);
-        listA.add(d);
-        expected.put(1, listA);
+        Map<Integer, Set<Option>> expected = new HashMap<>();
+        Set<Option> setA = new HashSet<>();
+        setA.add(a);
+        setA.add(b);
+        setA.add(c);
+        setA.add(d);
+        expected.put(1, setA);
 
 
         assertEquals(expected, test.getRanked(), "Testing four options all tied");
