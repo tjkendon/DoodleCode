@@ -67,4 +67,173 @@ class CompetitionRoundTest {
 
     }
 
+    @Test
+    void testRankingTwoTwoWayTies() {
+        Option a = new Option("Course A");
+        Option b = new Option("Course B");
+        Option c = new Option("Course C");
+        Option d = new Option("Course D");
+
+        CompetitionRound test = new CompetitionRound();
+        test.putOption(a, 4);
+        test.putOption(b, 4);
+        test.putOption(c, 2);
+        test.putOption(d, 2);
+
+        Map<Integer, Set<Option>> expected = new HashMap<>();
+        Set<Option> setA = new HashSet<>();
+        setA.add(a);
+        setA.add(b);
+        expected.put(1, setA);
+        Set<Option> setB = new HashSet<>();
+        setB.add(c);
+        setB.add(d);
+        expected.put(3, setB);
+
+
+        assertEquals(expected, test.getRanked(), "Testing two two way ties");
+
+    }
+
+    @Test
+    void testRankingOneAndThreeWayTie() {
+        Option a = new Option("Course A");
+        Option b = new Option("Course B");
+        Option c = new Option("Course C");
+        Option d = new Option("Course D");
+
+        CompetitionRound test = new CompetitionRound();
+        test.putOption(a, 4);
+        test.putOption(b, 4);
+        test.putOption(c, 4);
+        test.putOption(d, 0);
+
+        Map<Integer, Set<Option>> expected = new HashMap<>();
+        Set<Option> setA = new HashSet<>();
+        setA.add(a);
+        setA.add(b);
+        setA.add(c);
+        expected.put(1, setA);
+        Set<Option> setB = new HashSet<>();
+        setB.add(d);
+        expected.put(4, setB);
+
+        assertEquals(expected, test.getRanked(), "Testing one then a three way tie");
+
+    }
+
+    @Test
+    void testRankingThreeWayTieAndOne() {
+        Option a = new Option("Course A");
+        Option b = new Option("Course B");
+        Option c = new Option("Course C");
+        Option d = new Option("Course D");
+
+        CompetitionRound test = new CompetitionRound();
+        test.putOption(a, 1);
+        test.putOption(b, 1);
+        test.putOption(c, 1);
+        test.putOption(d, 6);
+
+        Map<Integer, Set<Option>> expected = new HashMap<>();
+        Set<Option> setA = new HashSet<>();
+        setA.add(a);
+        setA.add(b);
+        setA.add(c);
+        expected.put(2, setA);
+        Set<Option> setB = new HashSet<>();
+        setB.add(d);
+        expected.put(1, setB);
+
+        assertEquals(expected, test.getRanked(), "Testing three way tie then one");
+
+    }
+
+    @Test
+    void testRankingOneOneTwo() {
+        Option a = new Option("Course A");
+        Option b = new Option("Course B");
+        Option c = new Option("Course C");
+        Option d = new Option("Course D");
+
+        CompetitionRound test = new CompetitionRound();
+        test.putOption(a, 6);
+        test.putOption(b, 4);
+        test.putOption(c, 1);
+        test.putOption(d, 1);
+
+        Map<Integer, Set<Option>> expected = new HashMap<>();
+        Set<Option> setA = new HashSet<>();
+        setA.add(a);
+        expected.put(1, setA);
+        Set<Option> setB = new HashSet<>();
+        setB.add(b);
+        expected.put(2, setB);
+        Set<Option> setC = new HashSet<>();
+        setC.add(c);
+        setC.add(d);
+        expected.put(3, setC);
+
+        assertEquals(expected, test.getRanked(), "Testing one, one, then two");
+
+    }
+
+    @Test
+    void testRankingOneTwoOne() {
+        Option a = new Option("Course A");
+        Option b = new Option("Course B");
+        Option c = new Option("Course C");
+        Option d = new Option("Course D");
+
+        CompetitionRound test = new CompetitionRound();
+        test.putOption(a, 6);
+        test.putOption(b, 2);
+        test.putOption(c, 2);
+        test.putOption(d, 1);
+
+        Map<Integer, Set<Option>> expected = new HashMap<>();
+        Set<Option> setA = new HashSet<>();
+        setA.add(a);
+        expected.put(1, setA);
+        Set<Option> setB = new HashSet<>();
+        setB.add(b);
+        setB.add(c);
+        expected.put(2, setB);
+        Set<Option> setC = new HashSet<>();
+        setC.add(d);
+        expected.put(4, setC);
+
+        assertEquals(expected, test.getRanked(), "Testing one, two, then one");
+
+    }
+
+    @Test
+    void testRankingTwoOneOne() {
+        Option a = new Option("Course A");
+        Option b = new Option("Course B");
+        Option c = new Option("Course C");
+        Option d = new Option("Course D");
+
+        CompetitionRound test = new CompetitionRound();
+        test.putOption(a, 3);
+        test.putOption(b, 3);
+        test.putOption(c, 2);
+        test.putOption(d, 1);
+
+        Map<Integer, Set<Option>> expected = new HashMap<>();
+        Set<Option> setA = new HashSet<>();
+        setA.add(a);
+        setA.add(b);
+        expected.put(1, setA);
+        Set<Option> setB = new HashSet<>();
+        setB.add(c);
+        expected.put(3, setB);
+        Set<Option> setC = new HashSet<>();
+        setC.add(d);
+        expected.put(4, setC);
+
+        assertEquals(expected, test.getRanked(), "Testing one, two, then one");
+
+    }
+
 }
