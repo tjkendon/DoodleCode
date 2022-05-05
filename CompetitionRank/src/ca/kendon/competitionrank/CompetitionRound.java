@@ -4,10 +4,19 @@ import java.util.*;
 
 public class CompetitionRound {
 
+    private String name;
+
     private Map<Option, Integer> options;
     private Map<Integer, Set<Option>> ranked;
 
     public CompetitionRound () {
+        this.name = "Unnamed";
+        options = new HashMap<>();
+        ranked = null;
+    }
+
+    public CompetitionRound (String name) {
+        this.name = name;
         options = new HashMap<>();
         ranked = null;
     }
@@ -15,6 +24,10 @@ public class CompetitionRound {
     public void putOption(Option o, int votes) {
         options.put(o, votes);
         ranked = null;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public Map<Option, Integer> getOptions() {
@@ -70,6 +83,15 @@ public class CompetitionRound {
             i += pullOptions.size();
 
         }
+    }
+
+    public String toString() {
+        String result = name + " - " + options;
+        if (ranked != null) {
+            result += " - " + ranked;
+        }
+
+        return result;
     }
 
 
