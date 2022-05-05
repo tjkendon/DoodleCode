@@ -85,6 +85,7 @@ public class CompetitionRound {
         }
     }
 
+    @Override
     public String toString() {
         return name + " - " + options + " - " + getRanked();
 
