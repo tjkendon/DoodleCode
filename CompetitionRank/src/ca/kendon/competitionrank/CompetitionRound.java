@@ -86,12 +86,8 @@ public class CompetitionRound {
     }
 
     public String toString() {
-        String result = name + " - " + options;
-        if (ranked != null) {
-            result += " - " + ranked;
-        }
+        return name + " - " + options + " - " + getRanked();
 
-        return result;
     }
 
 
