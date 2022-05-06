@@ -86,6 +86,24 @@ public class CompetitionRound {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CompetitionRound that = (CompetitionRound) o;
+
+        if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
+        return getOptions() != null ? getOptions().equals(that.getOptions()) : that.getOptions() == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getName() != null ? getName().hashCode() : 0;
+        result = 31 * result + (getOptions() != null ? getOptions().hashCode() : 0);
+        return result;
+    }
+
+    @Override
     public String toString() {
         return name + " - " + options + " - " + getRanked();
 
