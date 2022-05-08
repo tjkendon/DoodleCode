@@ -30,7 +30,11 @@ public class CompetitionRound {
         return name;
     }
 
-    public Map<Option, Integer> getOptions() {
+    public Set<Option> getOptions() {
+        return options.keySet();
+    }
+
+    public Map<Option, Integer> getOptionVotes() {
         return options;
     }
 
@@ -93,13 +97,13 @@ public class CompetitionRound {
         CompetitionRound that = (CompetitionRound) o;
 
         if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null) return false;
-        return getOptions() != null ? getOptions().equals(that.getOptions()) : that.getOptions() == null;
+        return getOptionVotes() != null ? getOptionVotes().equals(that.getOptionVotes()) : that.getOptionVotes() == null;
     }
 
     @Override
     public int hashCode() {
         int result = getName() != null ? getName().hashCode() : 0;
-        result = 31 * result + (getOptions() != null ? getOptions().hashCode() : 0);
+        result = 31 * result + (getOptionVotes() != null ? getOptionVotes().hashCode() : 0);
         return result;
     }
 
