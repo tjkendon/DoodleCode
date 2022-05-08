@@ -1,2 +1,4 @@
-package ca.kendon.competitionrank;public class OptionData {
+package ca.kendon.competitionrank;
+
+public class OptionData {
 }
