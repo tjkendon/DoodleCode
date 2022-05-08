@@ -1,12 +1,17 @@
 package ca.kendon.competitionrank;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class CompetitionRoundReader {
 
 
-    public CompetitionRound read(String roundData) {
+    public static CompetitionRound read(String roundData) {
 
-
-        String name = "Read";
+        String name = "Round Data";
         String[] data = roundData.split(",");
         int firstEntry = 0;
 
@@ -22,6 +27,19 @@ public class CompetitionRoundReader {
         }
 
         return round;
+    }
+
+    public static List<CompetitionRound> readFile(File file) throws FileNotFoundException {
+        List<CompetitionRound> rounds = new ArrayList<>();
+
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextLine()) {
+            rounds.add(read(scanner.nextLine()));
+        }
+
+        scanner.close();
+
+        return rounds;
     }
 
 }
