@@ -47,7 +47,7 @@ public class CompetitionRound {
             rankOptions();
         }
         for (int i = 1; i <= 4; i++ ) {
-            if (ranked.get(i).contains(o)) {
+            if ((ranked.get(i) != null) && ranked.get(i).contains(o)) {
                 return i;
             }
         }
