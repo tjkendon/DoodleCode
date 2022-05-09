@@ -4,10 +4,13 @@ public class OptionData {
 
     private int count = 0;
     private int totalVotes = 0;
+    private double averageRank = 0.0;
 
-    public void updateCount(int votes) {
+    public void updateCount(int votes, int rank) {
         count++;
         totalVotes += votes;
+        averageRank = ((averageRank * (count - 1)) + rank) / count;
+
 
     }
 
@@ -19,6 +22,10 @@ public class OptionData {
         return totalVotes;
     }
 
+    public double getAverageRank() {
+        return averageRank;
+    }
+
     public double getAverageVotes() {
         return (double) totalVotes / (double)  count;
     }
@@ -28,6 +35,7 @@ public class OptionData {
         return "OptionData{" +
                 "count=" + count +
                 ", averageVotes=" + getAverageVotes()  +
+                ", averageRank=" + getAverageRank()  +
                 '}';
     }
 }
