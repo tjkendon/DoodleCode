@@ -51,7 +51,7 @@ public class CompetitionRound {
                 return i;
             }
         }
-        return -1;
+        return Integer.MAX_VALUE;
     }
 
     protected Map<Integer, Set<Option>> getRanked() {
