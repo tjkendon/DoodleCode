@@ -317,4 +317,44 @@ class CompetitionRoundTest {
 
     }
 
+    @Test
+    void testGetRank2Ranks22() {
+        Option a = new Option("Course A");
+        Option b = new Option("Course B");
+        Option c = new Option("Course C");
+        Option d = new Option("Course D");
+
+        CompetitionRound test = new CompetitionRound();
+        test.putOption(a, 6);
+        test.putOption(b, 6);
+        test.putOption(c, 3);
+        test.putOption(d, 3);
+
+        assertEquals(1, test.getRank(a), "Testing getRank - a=1 - 2 ranks");
+        assertEquals(1, test.getRank(b), "Testing getRank - b=1 - 2 ranks");
+        assertEquals(3, test.getRank(c), "Testing getRank - c=3 - 2 ranks");
+        assertEquals(3, test.getRank(d), "Testing getRank - d=3 - 2 ranks");
+
+    }
+
+    @Test
+    void testGetRank1Rank() {
+        Option a = new Option("Course A");
+        Option b = new Option("Course B");
+        Option c = new Option("Course C");
+        Option d = new Option("Course D");
+
+        CompetitionRound test = new CompetitionRound();
+        test.putOption(a, 3);
+        test.putOption(b, 3);
+        test.putOption(c, 3);
+        test.putOption(d, 3);
+
+        assertEquals(1, test.getRank(a), "Testing getRank - a=3 - 1 rank");
+        assertEquals(1, test.getRank(b), "Testing getRank - b=3 - 1 rank");
+        assertEquals(1, test.getRank(c), "Testing getRank - c=3 - 1 rank");
+        assertEquals(1, test.getRank(d), "Testing getRank - d=3 - 1 rank");
+
+    }
+
 }
