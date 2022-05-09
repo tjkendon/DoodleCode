@@ -13,8 +13,9 @@ public class Ranking {
         for (CompetitionRound r : rounds) {
             for (Option o : r.getOptions()) {
                 if (!data.containsKey(o)) {
-                    data.put(o, null);
+                    data.put(o, new OptionData());
                 }
+                data.get(o).updateCount();
                 System.out.println(data);
             }
             System.out.println();
