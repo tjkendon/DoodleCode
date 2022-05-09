@@ -15,7 +15,7 @@ public class Ranking {
                 if (!data.containsKey(o)) {
                     data.put(o, new OptionData());
                 }
-                data.get(o).updateCount();
+                data.get(o).updateCount(r.getVotes(o));
                 System.out.println(data);
             }
             System.out.println();
