@@ -5,11 +5,13 @@ public class OptionData {
     private int count = 0;
     private int totalVotes = 0;
     private double averageRank = 0.0;
+    private int timesGood = 0;
 
-    public void updateCount(int votes, int rank) {
+    public void updateCount(int votes, int rank, boolean good) {
         count++;
         totalVotes += votes;
         averageRank = ((averageRank * (count - 1)) + rank) / count;
+        timesGood += good ? 1 : 0;
 
 
     }
@@ -26,6 +28,14 @@ public class OptionData {
         return averageRank;
     }
 
+    public int getTimesGood() {
+        return timesGood;
+    }
+
+    public double getGoodRate() {
+        return (double) timesGood / (double) count;
+    }
+
     public double getAverageVotes() {
         return (double) totalVotes / (double)  count;
     }
@@ -36,6 +46,7 @@ public class OptionData {
                 "count=" + count +
                 ", averageVotes=" + getAverageVotes()  +
                 ", averageRank=" + getAverageRank()  +
+                ", goodRate=" + getGoodRate()  +
                 '}';
     }
 }
