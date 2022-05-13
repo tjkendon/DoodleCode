@@ -40,6 +40,8 @@ public class OptionData {
         return (double) totalVotes / (double)  count;
     }
 
+    public double getRankQualityScore() {return ((4-averageRank) * getGoodRate()) / (double) 3; }
+
     @Override
     public String toString() {
         return "OptionData{" +
@@ -47,6 +49,7 @@ public class OptionData {
                 ", averageVotes=" + getAverageVotes()  +
                 ", averageRank=" + getAverageRank()  +
                 ", goodRate=" + getGoodRate()  +
+                ", rankQualityScore=" + getRankQualityScore()  +
                 '}';
     }
 }
