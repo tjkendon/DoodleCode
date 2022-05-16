@@ -22,6 +22,10 @@ public class OptionData {
 
     }
 
+    public int getCount() {
+        return count;
+    }
+
     public Option getOption() {
         return option;
     }
@@ -49,7 +53,7 @@ public class OptionData {
     @Override
     public String toString() {
         return "OptionData-" + option + "{" +
-                "count=" + count +
+                "count=" + getCount() +
                 ", averageVotes=" + getAverageVotes() +
                 ", averageRank=" + getAverageRank() +
                 ", goodRate=" + getGoodRate() +
