@@ -2,10 +2,16 @@ package ca.kendon.competitionrank;
 
 public class OptionData {
 
+    private Option option;
+
     private int count = 0;
     private int totalVotes = 0;
     private double averageRank = 0.0;
     private int timesGood = 0;
+
+    public OptionData (Option option) {
+        this.option = option;
+    }
 
     public void updateCount(int votes, int rank, boolean good) {
         count++;
@@ -44,7 +50,7 @@ public class OptionData {
 
     @Override
     public String toString() {
-        return "OptionData{" +
+        return "OptionData-" + option + "{" +
                 "count=" + count +
                 ", averageVotes=" + getAverageVotes()  +
                 ", averageRank=" + getAverageRank()  +
