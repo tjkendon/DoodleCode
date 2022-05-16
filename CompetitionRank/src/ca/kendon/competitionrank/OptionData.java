@@ -9,7 +9,7 @@ public class OptionData {
     private double averageRank = 0.0;
     private int timesGood = 0;
 
-    public OptionData (Option option) {
+    public OptionData(Option option) {
         this.option = option;
     }
 
@@ -22,16 +22,8 @@ public class OptionData {
 
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public int getTotalVotes() {
-        return totalVotes;
-    }
-
-    public double getAverageRank() {
-        return averageRank;
+    public Option getOption() {
+        return option;
     }
 
     public int getTimesGood() {
@@ -43,19 +35,28 @@ public class OptionData {
     }
 
     public double getAverageVotes() {
-        return (double) totalVotes / (double)  count;
+        return (double) totalVotes / (double) count;
     }
 
-    public double getPowerRank() {return ((getAverageVotes() / getAverageRank()) * getGoodRate()); }
+    public double getAverageRank() {
+        return averageRank;
+    }
+
+    public double getPowerRank() {
+        return ((getAverageVotes() / getAverageRank()) * getGoodRate());
+    }
 
     @Override
     public String toString() {
         return "OptionData-" + option + "{" +
                 "count=" + count +
-                ", averageVotes=" + getAverageVotes()  +
-                ", averageRank=" + getAverageRank()  +
-                ", goodRate=" + getGoodRate()  +
+                ", averageVotes=" + getAverageVotes() +
+                ", averageRank=" + getAverageRank() +
+                ", goodRate=" + getGoodRate() +
                 ", powerRank=" + getPowerRank() +
                 '}';
     }
+
+
 }
+
