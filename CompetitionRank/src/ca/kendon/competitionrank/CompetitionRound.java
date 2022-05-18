@@ -114,7 +114,29 @@ public class CompetitionRound {
     }
 
 
+    public List<Option> getBetterThan(Option option) {
+        if(options.containsKey(option)) {
+            List<Option> betterThan = new ArrayList<>();
+            for (Option o : options.keySet()) {
+                if (options.get(option) > options.get(o)) {
+                    betterThan.add(o);
+                }
+            }
+            return betterThan;
+         }
+        return null;
+    }
 
-
-
+    public List<Option> getWorseThan(Option option) {
+        if(options.containsKey(option)) {
+            List<Option> worseThan = new ArrayList<>();
+            for (Option o : options.keySet()) {
+                if (options.get(option) < options.get(o)) {
+                    worseThan.add(o);
+                }
+            }
+            return worseThan;
+        }
+        return null;
+    }
 }
