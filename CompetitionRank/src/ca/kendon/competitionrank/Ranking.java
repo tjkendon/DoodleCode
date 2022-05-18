@@ -39,5 +39,7 @@ public class Ranking {
     }
 
 
-
+    public Map<Option, OptionData> getData() {
+        return data;
+    }
 }
