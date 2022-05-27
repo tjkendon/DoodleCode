@@ -1,5 +1,9 @@
 package ca.kendon.competitionrank;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class OptionData {
 
     private Option option;
@@ -9,18 +13,34 @@ public class OptionData {
     private double averageRank = 0.0;
     private int timesGood = 0;
 
+    private Map<Option, Integer> wonAgainst = new HashMap<>();
+    private Map<Option, Integer> lostTo = new HashMap<>();
+
     public OptionData(Option option) {
         this.option = option;
     }
 
-    public void updateCount(int votes, int rank, boolean good) {
+    public void updateCount(int votes, int rank, boolean good, List<Option> wonAgainst, List<Option> lostTo) {
         count++;
         totalVotes += votes;
         averageRank = ((averageRank * (count - 1)) + rank) / count;
         timesGood += good ? 1 : 0;
 
+        mapCount(this.wonAgainst, wonAgainst);
+        mapCount(this.lostTo, lostTo);
+
 
     }
+
+    private void mapCount(Map<Option, Integer> map, List<Option> newStuff) {
+        for (Option o : newStuff) {
+            if (!map.containsKey(o)) {
+                map.put(o, 0);
+            }
+            map.put(o, map.get(o) + 1);
+        }
+    }
+
 
     public int getCount() {
         return count;

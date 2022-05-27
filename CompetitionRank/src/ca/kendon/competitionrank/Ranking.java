@@ -21,7 +21,12 @@ public class Ranking {
                     if (!data.containsKey(o)) {
                         data.put(o, new OptionData(o));
                     }
-                    data.get(o).updateCount(r.getVotes(o), r.getRank(o), r.getRank(o) < defaultRank);
+                    data.get(o).updateCount(
+                            r.getVotes(o),
+                            r.getRank(o),
+                            r.getRank(o) < defaultRank,
+                            r.getBetterThan(o),
+                            r.getWorseThan(o));
                 }
             }
         }
