@@ -15,7 +15,6 @@ public class Ranking {
     protected void rankOptions(List<CompetitionRound> rounds) {
 
         for (CompetitionRound r : rounds) {
-            int defaultRank = r.getRank(defaultOption);
             for (Option o : r.getOptions()) {
                 if (!o.equals(defaultOption)) {
                     if (!data.containsKey(o)) {
@@ -24,7 +23,6 @@ public class Ranking {
                     data.get(o).updateCount(
                             r.getVotes(o),
                             r.getRank(o),
-                            r.getRank(o) < defaultRank,
                             r.getBetterThan(o),
                             r.getWorseThan(o));
                 }

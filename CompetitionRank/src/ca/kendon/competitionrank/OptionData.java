@@ -6,25 +6,23 @@ import java.util.Map;
 
 public class OptionData {
 
-    private Option option;
+    private final Option option;
 
     private int count = 0;
     private int totalVotes = 0;
     private double averageRank = 0.0;
-    private int timesGood = 0;
 
-    private Map<Option, Integer> wonAgainst = new HashMap<>();
-    private Map<Option, Integer> lostTo = new HashMap<>();
+    private final Map<Option, Integer> wonAgainst = new HashMap<>();
+    private final Map<Option, Integer> lostTo = new HashMap<>();
 
     public OptionData(Option option) {
         this.option = option;
     }
 
-    public void updateCount(int votes, int rank, boolean good, List<Option> wonAgainst, List<Option> lostTo) {
+    public void updateCount(int votes, int rank, List<Option> wonAgainst, List<Option> lostTo) {
         count++;
         totalVotes += votes;
         averageRank = ((averageRank * (count - 1)) + rank) / count;
-        timesGood += good ? 1 : 0;
 
         mapCount(this.wonAgainst, wonAgainst);
         mapCount(this.lostTo, lostTo);
@@ -41,7 +39,6 @@ public class OptionData {
         }
     }
 
-
     public int getCount() {
         return count;
     }
@@ -50,12 +47,8 @@ public class OptionData {
         return option;
     }
 
-    public int getTimesGood() {
-        return timesGood;
-    }
-
-    public double getGoodRate() {
-        return (double) timesGood / (double) count;
+    public double getBetterRate(Option o) {
+        return (double) getTimesBetterThan(o) / (double) count;
     }
 
     public double getAverageVotes() {
@@ -66,8 +59,12 @@ public class OptionData {
         return averageRank;
     }
 
-    public double getPowerRank() {
-        return ((getAverageVotes() / getAverageRank()) * getGoodRate());
+    public double getPowerRank(Option defaultOption) {
+        return ((getAverageVotes() / getAverageRank()) * getBetterRate(defaultOption));
+    }
+
+    public int getTimesBetterThan(Option o) {
+        return wonAgainst.containsKey(o) ? wonAgainst.get(o): 0;
     }
 
     @Override
@@ -76,8 +73,6 @@ public class OptionData {
                 "count=" + getCount() +
                 ", averageVotes=" + getAverageVotes() +
                 ", averageRank=" + getAverageRank() +
-                ", goodRate=" + getGoodRate() +
-                ", powerRank=" + getPowerRank() +
                 '}';
     }
 
