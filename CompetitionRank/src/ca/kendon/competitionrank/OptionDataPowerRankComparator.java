@@ -2,11 +2,11 @@ package ca.kendon.competitionrank;
 
 import java.util.Comparator;
 
-public class OptionDataPowerRankComperator implements Comparator<OptionData> {
+public class OptionDataPowerRankComparator implements Comparator<OptionData> {
 
     private Option defaultOption;
 
-    public OptionDataPowerRankComperator (Option defaultOption) {
+    public OptionDataPowerRankComparator(Option defaultOption) {
         this.defaultOption = defaultOption;
     }
 
