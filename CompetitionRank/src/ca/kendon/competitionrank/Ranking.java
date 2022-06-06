@@ -41,6 +41,15 @@ public class Ranking {
         return results;
     }
 
+    public OptionData getOptionData(String key) {
+        for (Option o: data.keySet()) {
+            if (o.getName().equals(key)) {
+                return data.get(o);
+            }
+        }
+        return null;
+    }
+
 
     public Map<Option, OptionData> getData() {
         return data;

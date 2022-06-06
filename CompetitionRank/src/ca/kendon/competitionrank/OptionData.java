@@ -77,5 +77,12 @@ public class OptionData {
     }
 
 
+    public Map<Option, Integer> getWonAgainst() {
+        return wonAgainst;
+    }
+
+    public Map<Option, Integer> getLostTo() {
+        return lostTo;
+    }
 }
 
