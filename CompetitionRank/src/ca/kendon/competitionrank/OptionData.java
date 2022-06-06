@@ -32,9 +32,7 @@ public class OptionData {
 
     private void mapCount(Map<Option, Integer> map, List<Option> newStuff) {
         for (Option o : newStuff) {
-            if (!map.containsKey(o)) {
-                map.put(o, 0);
-            }
+            map.putIfAbsent(o, 0);
             map.put(o, map.get(o) + 1);
         }
     }
@@ -64,7 +62,7 @@ public class OptionData {
     }
 
     public int getTimesBetterThan(Option o) {
-        return wonAgainst.containsKey(o) ? wonAgainst.get(o): 0;
+        return wonAgainst.getOrDefault(o, 0);
     }
 
     @Override
@@ -83,6 +81,18 @@ public class OptionData {
 
     public Map<Option, Integer> getLostTo() {
         return lostTo;
+    }
+
+    public double getOverallWinRate() {
+        return (double) getTotal(wonAgainst) / ((double) getTotal(lostTo) + (double) getTotal(wonAgainst));
+    }
+
+    private int getTotal(Map<Option, Integer> data) {
+        int total = 0;
+        for (Integer v: data.values()) {
+            total += v;
+        }
+        return total;
     }
 }
 
