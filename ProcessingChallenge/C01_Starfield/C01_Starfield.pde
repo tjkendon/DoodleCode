@@ -59,7 +59,7 @@ void cleanUp() {
       if (random(2) > 1) {
       points[i] = randomPoint(0, 600, 200, 400);
     } else {
-      points[i] = randomPoint(200, 200, 0, 600);
+      points[i] = randomPoint(200, 400, 0, 600);
     }
     }
     
