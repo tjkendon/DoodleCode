@@ -15,8 +15,8 @@ void draw() {
   int rMouseX = mouseX - (width/2);
   int rMouseY = mouseY - (height/2);
   float a = atan2(rMouseY, rMouseX); 
-  int y = int(100 / sin(a));
-  int x = int(100 / cos(a));
+  int y = int(100 * sin(a));
+  int x = int(100 * cos(a));
   fill(0);
   text (frameCount + " " 
     + rMouseX + " " 
@@ -33,4 +33,5 @@ void draw() {
   line (0, 0, x, y);
   stroke(0);
   line (0, 0, 300, 0);
+  
 }
