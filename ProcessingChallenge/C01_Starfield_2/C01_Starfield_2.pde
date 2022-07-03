@@ -6,15 +6,13 @@ int speed = 3;
 int pointSize = 75;
 Point[] points = new Point[pointSize];
 
-
-
 void setup() {
   size(600, 600);
   background(0);
   stroke(255);
   
   for (int i = 0; i < pointSize; i++) {
-    points[i] = randomPoint();
+    points[i] = randomPoint(color(255));
   }
   
   drawPoints();
@@ -30,6 +28,7 @@ void draw() {
 
 void drawPoints() {
   for (int i = 0; i < pointSize; i++) {
+    stroke(points[i].c);
     ellipse(points[i].x,points[i].y,1,1);
   }
 }
@@ -51,10 +50,24 @@ void cleanUp() {
     (points[i].y < -(size / 2)) || 
     (points[i].x > size / 2) || 
     (points[i].y > size / 2)) {
+      color c = color(250);
+      if (random(16) < 2) {
+        c = color(random(255), random(255), random(255));
+      }
       if (random(2) > 1) {
-      points[i] = randomPoint(-(size / 2), (size / 2), -(size/6), (size / 6));
+      points[i] = randomPoint(
+            -(size / 2), 
+            (size / 2), 
+            -(size/6), 
+            (size / 6),
+            c);
     } else {
-      points[i] = randomPoint(-(size / 6), (size / 6), -(size / 2), (size / 2));
+      points[i] = randomPoint(
+            -(size / 6), 
+            (size / 6), 
+            -(size / 2), 
+            (size / 2),
+            c);
     }
     }
     
@@ -62,14 +75,14 @@ void cleanUp() {
   
 }
 
-public  Point randomPoint() {
+public  Point randomPoint(color c) {
     return new Point(int(random(size)) - (size / 2), 
-      int(random(size)) - (size / 2));
+      int(random(size)) - (size / 2), c);
   }
   
-  public Point randomPoint(int xLow, int xHigh, int yLow, int yHigh) {
+  public Point randomPoint(int xLow, int xHigh, int yLow, int yHigh, color c) {
     return new Point(xLow + int(random(xHigh - xLow)), 
-      yLow + int(random(yHigh - yLow)));
+      yLow + int(random(yHigh - yLow)), c);
   }
 
 
@@ -77,9 +90,12 @@ class Point {
   int x;
   int y;
   
-  public Point(int x, int y) {
+  color c;
+  
+  public Point(int x, int y, color c) {
     this.x = x;
     this.y = y;
+    this.c = c;
   }
   
   public void updateX(int d) {
