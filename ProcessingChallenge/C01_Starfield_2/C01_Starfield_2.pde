@@ -52,9 +52,9 @@ void cleanUp() {
     (points[i].x > size / 2) || 
     (points[i].y > size / 2)) {
       if (random(2) > 1) {
-      points[i] = randomPoint(-300, 300, -100, 100);
+      points[i] = randomPoint(-(size / 2), (size / 2), -(size/6), (size / 6));
     } else {
-      points[i] = randomPoint(-100, 100, -300, 300);
+      points[i] = randomPoint(-(size / 6), (size / 6), -(size / 2), (size / 2));
     }
     }
     
