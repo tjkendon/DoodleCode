@@ -1,9 +1,9 @@
 
 int size = 600;
 
-int speed = 3;
+int speed = 5;
 
-int pointSize = 75;
+int pointSize = 150;
 Point[] points = new Point[pointSize];
 
 void setup() {
