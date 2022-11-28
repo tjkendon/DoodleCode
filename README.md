@@ -15,7 +15,9 @@ A collection of small programs for fun and demonstration purposes.
 * [Pixel Counter](https://github.com/tjkendon/DoodleCode/tree/main/PixelCount)
    * Counts the pixels of each colour in and .png
 * [Simple Statistics](https://github.com/tjkendon/DoodleCode/blob/main/SimpleStatistics/stats.py)
-   * Calculates simple statistical measures from a sequence of numbers     
+   * Calculates simple statistical measures from a sequence of numbers   
+* Sleep Calculator
+   * Determine when to go to bed or get up based on 90 minute sleep cycles.
 
 ## Complete Programs
 * [Category Vote](https://github.com/tjkendon/DoodleCode/tree/main/CategoryVote)
