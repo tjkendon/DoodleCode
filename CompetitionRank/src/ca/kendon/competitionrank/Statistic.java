@@ -31,4 +31,5 @@ public class Statistic {
     public boolean isAboveDefault() {
         return aboveDefault;
     }
+
 }

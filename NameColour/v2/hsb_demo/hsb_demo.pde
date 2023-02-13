@@ -8,7 +8,8 @@ void setup() {
 
 void draw() {
  background(color(0, 0, 100));
- fill(color(colour%360, 100, 100));
+ //fill(color(102, 16, 50));
+ fill(color(102, 16, 50));
  rect (150, 150, 100, 100);
  colour++;
 }

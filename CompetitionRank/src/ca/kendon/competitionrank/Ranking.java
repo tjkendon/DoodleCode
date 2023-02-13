@@ -5,8 +5,8 @@ import java.util.*;
 
 public class Ranking {
 
-    private Option defaultOption;
-    private Map<Option, OptionData> data = new HashMap<>();
+    private final Option defaultOption;
+    private final Map<Option, OptionData> data = new HashMap<>();
 
     public Ranking(Option defaultOption) {
         this.defaultOption = defaultOption;
@@ -29,6 +29,24 @@ public class Ranking {
             }
         }
 
+    }
+
+    public Map<Option, Integer> getQualityOfCompetition() {
+
+        Map<Option, Double> qualityOfCompetition = new HashMap<>();
+        for (Option o: data.keySet()) {
+            double score = 0;
+            for (Option c: data.get(o).getWonAgainst().keySet()) {
+                if (!c.equals(defaultOption)) {
+                    score += data.get(c).getOverallWinRate();
+                }
+            }
+            System.out.println(o.getName() + "," + score);
+            qualityOfCompetition.put(o, score / (data.get(o).getWonAgainst().size() + data.get(o).getLostTo().size()));
+        }
+
+
+        return null;
     }
 
     public List<Option> optionsBySort(Comparator<OptionData> comparator) {
