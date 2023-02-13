@@ -8,8 +8,8 @@ A collection of small programs for fun and demonstration purposes.
    * Calculates the distance between two colours, and does some matching and possibly clustering for Perler purposes.
 * [Competition Rank](https://github.com/tjkendon/DoodleCode/tree/main/CompetitionRank)
    * Space to play with quality of competition measures.  
-* [EvoMandella](https://github.com/tjkendon/DoodleCode/tree/main/EvoMandala)
-   * Playing with mandala shapes generated using genetic algorithm techniques.
+* [EvoPattern](https://github.com/tjkendon/DoodleCode/tree/main/EvoPattern)
+   * Playing with patterns generated using genetic algorithm techniques.
 * [Moving Agent](https://github.com/tjkendon/DoodleCode/tree/main/MovingAgent)
    * Experiments (and practice) making things move.
 * [Pixel Counter](https://github.com/tjkendon/DoodleCode/tree/main/PixelCount)
