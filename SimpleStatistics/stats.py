@@ -13,7 +13,7 @@ value = int(input())
 while value >= 0:
 	sum += value;
 	count += 1;
-	print("Meane is: %f" % (sum / count))
+	print("Mean is: %f" % (sum / count))
 	
 	if minimum >= 0 :
 		minimum = min(minimum, value)
