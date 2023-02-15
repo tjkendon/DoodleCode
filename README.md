@@ -12,6 +12,8 @@ These are doodles I'm still working on.
 
 * [A*](https://github.com/tjkendon/DoodleCode/tree/main/AStar)
    * A sandbox for playing with A* pathfinding 
+* [An Arabesque of My Own](https://github.com/tjkendon/DoodleCode/tree/main/Arabesque)
+   * Fun messing around with colours, pattern and shape. Based a little on the mac screen saver.
 * [Colour Distance](https://github.com/tjkendon/DoodleCode/tree/main/ColourDistance)
    * Calculates the distance between two colours, and does some matching and possibly clustering for Perler purposes.
 * [Competition Rank](https://github.com/tjkendon/DoodleCode/tree/main/CompetitionRank)
