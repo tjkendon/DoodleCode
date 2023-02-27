@@ -1,6 +1,6 @@
 float noiseX = 0.1;
 float noiseY = 0.1;
-float noiseStep = 0.005;
+float noiseStep = 0.01;
 
 size(400, 400);
 pixelDensity(2); // pixelDensity helps fix issues with Mac Retina display (2 seems to be only value)

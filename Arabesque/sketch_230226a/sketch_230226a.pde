@@ -1,3 +1,6 @@
+// example from Processing noise() documentation
+// https://processing.org/reference/noise_.html
+
 float xoff = 0.0;
 
 void draw() {
