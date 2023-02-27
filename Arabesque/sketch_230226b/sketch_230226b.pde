@@ -1,3 +1,6 @@
+// example from Processing noise() documentation
+// https://processing.org/reference/noise_.html
+
 float noiseScale = 0.02;
 
 void setup() {
