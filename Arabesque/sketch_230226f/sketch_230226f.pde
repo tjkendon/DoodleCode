@@ -1,6 +1,7 @@
 float noiseX = 0.1;
 float noiseY = 0.1;
-float noiseStep = 0.03;
+float stepX = 0.03;
+float stepY = 0.0001;
 
 size(400, 400);
 pixelDensity(2); // pixelDensity helps fix issues with Mac Retina display (2 seems to be only value)
@@ -11,9 +12,8 @@ for (int y = 0; y < height; y++) {
     int d = (int) (noise(noiseX, noiseY) * 360);
     stroke(d, 100, 100);
     point(x, y);
-    println(noiseX, noiseY, d);
-    noiseX += noiseStep;
-    noiseY += noiseStep;
+    noiseX += stepX;
   }
+  noiseY += stepY;
   
 }
