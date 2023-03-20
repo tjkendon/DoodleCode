@@ -30,6 +30,8 @@ These are doodles I'm still working on.
    * Counts the pixles in an image and organizes them by colour.
 * [ProcessingChallenge](https://github.com/tjkendon/DoodleCode/tree/main/PixelCount)
    * A take on [Daniel Shiffman's](https://github.com/shiffman) [Coding Train](https://thecodingtrain.com/) [Challenges](https://thecodingtrain.com/challenges).
+* [Season Length](https://github.com/tjkendon/DoodleCode/tree/main/Season)
+   * Experiments on handling 
 * [Simple Statistics](https://github.com/tjkendon/DoodleCode/blob/main/SimpleStatistics/)
    * Calculates simple statistical measures from a sequence of numbers   
 * Sleep Calculator
