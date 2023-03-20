@@ -39,4 +39,9 @@ public class Competitor {
     public double getTrueStrength() {
         return trueStrength;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
