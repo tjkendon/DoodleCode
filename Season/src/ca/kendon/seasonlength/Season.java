@@ -3,15 +3,16 @@ package ca.kendon.seasonlength;
 import java.util.List;
 import java.util.ArrayList;
 
-public abstract class Season {
+public class Season {
 
     private List<Competitor> competitors;
     private List<Record> results;
 
     private CompetitionModel model;
 
-    public Season(List<Competitor> competitors) {
+    public Season(List<Competitor> competitors, CompetitionModel model) {
         this.competitors = competitors;
+        this.model = model;
     }
 
     public List<Competitor> getCompetitors() {
@@ -23,7 +24,7 @@ public abstract class Season {
     }
 
     public void compete() {
-        results = model.compete();
+        results = model.compete(competitors);
     }
 
 
