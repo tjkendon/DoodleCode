@@ -1,38 +1,41 @@
 package ca.kendon.seasonlength;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
-public class NaiveCompetition implements CompetitionModel{
+public class NaiveCompetition implements CompetitionModel {
 
     Random random = new Random();
 
-    public List<Record> compete (List<Competitor> competitorList) {
+    public Collection<Record> compete(List<Competitor> competitorList) {
 
-        List<Record> records = new ArrayList<>();
-
-        for (Competitor c: competitorList) {
-            Record r = new Record(c);
-            for (Competitor d: competitorList) {
-                if (!d.equals(c)) {
-                    System.out.println(c + " vs " + d);
-                    double cScore = random.nextDouble() * c.getTrueStrength();
-                    double dScore = random.nextDouble() * d.getTrueStrength();
-
-                    if (cScore < dScore) {
-                        System.out.println(c + " looses");
-                        r.addLoss();
-                    } else {
-                        System.out.println(c + " wins");
-                        r.addWin();
-                    }
-                }
-            }
-            records.add(r);
+        Map<Competitor, Record> records = new HashMap<>();
+        for (Competitor c : competitorList) {
+            records.put(c, new Record(c));
         }
 
-        return records;
+        for (int i = 0; i < competitorList.size(); i++) {
+            Competitor c = competitorList.get(i);
+            Record rC = records.get(c);
+            // fix for square
+            for (int j = i + 1; j < competitorList.size(); j++) {
+                Competitor d = competitorList.get(j);
+                Record rD = records.get(d);
+
+                double cScore = random.nextDouble() * c.getTrueStrength();
+                double dScore = random.nextDouble() * d.getTrueStrength();
+
+                if (cScore < dScore) {
+                    rC.addLoss();
+                    rD.addWin();
+                } else {
+                    rC.addWin();
+                    rD.addLoss();
+                }
+
+            }
+        }
+
+        return records.values();
     }
 
 }

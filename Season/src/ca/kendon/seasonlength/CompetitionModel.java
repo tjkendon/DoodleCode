@@ -1,9 +1,10 @@
 package ca.kendon.seasonlength;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface CompetitionModel {
 
-    List<Record> compete(List<Competitor> competitorList);
+    Collection<Record> compete(List<Competitor> competitorList);
 
 }

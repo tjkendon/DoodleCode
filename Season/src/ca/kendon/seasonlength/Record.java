@@ -58,4 +58,10 @@ public class Record {
     public int getTies() {
         return ties;
     }
+
+    public String toString() {
+        return competitor.getName() + " " + wins + "-" +
+                overtimeWins + "-" + ties + "-" + overtimeLosses + "-" + losses;
+    }
+
 }

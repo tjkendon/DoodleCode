@@ -1,12 +1,13 @@
 package ca.kendon.seasonlength;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;
 
 public class Season {
 
     private List<Competitor> competitors;
-    private List<Record> results;
+    private Collection<Record> results;
 
     private CompetitionModel model;
 
@@ -19,7 +20,7 @@ public class Season {
         return competitors;
     }
 
-    public List<Record> getResults() {
+    public Collection<Record> getResults() {
         return results;
     }
 
