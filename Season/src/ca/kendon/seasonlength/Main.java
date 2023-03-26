@@ -21,10 +21,16 @@ public class Main {
         competitors.add(cC);
 
         for (int i = 0; i < 10; i++) {
-            Season s = new Season(competitors, new NaiveCompetition());
+            Season s = new Season(competitors, new NaiveCompetition(), new Simple2PointModel());
             s.compete();
-            Collection<Record> results = s.getResults();
-            System.out.println(results);
+            Collection<Record> results = s.getRecords();
+            System.out.println("Season " + i);
+            for (Record r : results) {
+                double points = s.getPointModel().getPoints(r);
+                double percent = points / ((competitors.size() - 1) * 2);
+
+                System.out.println(r + "    " + points + " " + percent + " " +  r.getCompetitor().getTrueStrength());
+            }
         }
 
     }

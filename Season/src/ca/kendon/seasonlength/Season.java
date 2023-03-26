@@ -2,30 +2,40 @@ package ca.kendon.seasonlength;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.ArrayList;
 
 public class Season {
 
     private List<Competitor> competitors;
     private Collection<Record> results;
 
-    private CompetitionModel model;
+    private PointModel pointModel;
 
-    public Season(List<Competitor> competitors, CompetitionModel model) {
+    private CompetitionModel competitionModel;
+
+    public Season(List<Competitor> competitors, CompetitionModel cModel, PointModel pointModel) {
         this.competitors = competitors;
-        this.model = model;
-    }
-
-    public List<Competitor> getCompetitors() {
-        return competitors;
+        this.competitionModel = cModel;
+        this.pointModel = pointModel;
     }
 
     public Collection<Record> getResults() {
         return results;
     }
 
+    public PointModel getPointModel() {
+        return pointModel;
+    }
+
+    public CompetitionModel getCompetitionModel() {
+        return competitionModel;
+    }
+
+    public Collection<Record> getRecords() {
+        return results;
+    }
+
     public void compete() {
-        results = model.compete(competitors);
+        results = competitionModel.compete(competitors);
     }
 
 
