@@ -8,6 +8,6 @@ The basic point of the Season Length Calculator is to take a look at how many ga
 
 The system is designed to create seasons with a number of competators. Each team has a "True Strength" which indicates how strong the competator should be in competition (as a value from 0 - 1). This value is used to have competators compete head-to-head which are then compiled over the season. Experiments can then be run to determine what's necessary to have the records converge on the "True Strength". 
 
-
+I'm also messing around with different models for competition (Round Robin, Repeated Competitions, Disjoint Competitions...) and different models for points (How many points for a win, tie, etc), which should let us see if the points or competition matter for usefulness.
 
 
