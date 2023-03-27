@@ -4,4 +4,10 @@ Calculator to look at how long sporting seasons need to be to determine a proper
 
 ## Overview
 
-The basic point of the Season Length Calculator is to take a look at how many games a comptition needs to really confirm that the result shows the "True Strength" of the teams compeating. This is another programatic attempt to make fun of sports announcers (see [List Different Finder](https://github.com/tjkendon/DoodleCode/tree/main/ListDifferenceFinder)).
+The basic point of the Season Length Calculator is to take a look at how many games a comptition needs to really confirm that the result shows the "True Strength" of the teams compeating. This is another programatic attempt to make fun of sports announcers (see [List Different Finder](https://github.com/tjkendon/DoodleCode/tree/main/ListDifferenceFinder)). In this case this is a response to the excited announcer talking about how great a team is doing, when they've won 3 games in a row, but they have no chance of actually making the play offs.
+
+The system is designed to create seasons with a number of competators. Each team has a "True Strength" which indicates how strong the competator should be in competition (as a value from 0 - 1). This value is used to have competators compete head-to-head which are then compiled over the season. Experiments can then be run to determine what's necessary to have the records converge on the "True Strength". 
+
+
+
+
