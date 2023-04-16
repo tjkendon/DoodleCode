@@ -1,6 +1,8 @@
 sum = 0
 count = 0
 
+product = 1;
+
 numbers = {}
 
 median_list = []
@@ -11,9 +13,13 @@ maximum = -1
 
 value = int(input())
 while value >= 0:
-	sum += value;
-	count += 1;
-	print("Mean is: %f" % (sum / count))
+	count += 1
+	sum += value
+	print("Arethmetic Mean is: %f" % (sum / count))
+
+	product *= value	
+	print("Geometric Mean is: %f" % pow(product, 1 / count))
+	
 	
 	if minimum >= 0 :
 		minimum = min(minimum, value)
