@@ -14,6 +14,11 @@ maximum = -1
 value = int(input())
 while value >= 0:
 	count += 1
+
+	if not (value in numbers):
+		numbers.update({value: 0})
+	numbers.update({value: (numbers[value] + 1)})
+
 	sum += value
 	print("Arethmetic Mean is: %f" % (sum / count))
 
@@ -28,11 +33,10 @@ while value >= 0:
 		minimum = value
 		maximum = value
 
-#	print("Minimum %d, Maximum %d" % minimum, maximum)
 	print('Range: {0} .. {1}'.format(minimum, maximum))
 
 	median = 0
-	median_list.append(value)
+	median_list = list(numbers.keys())
 	median_list.sort()
 	if len(median_list) % 2 == 1:
 		median = median_list[len(median_list)//2]
@@ -40,9 +44,6 @@ while value >= 0:
 		median = (median_list[len(median_list)//2] + median_list[len(median_list)//2 - 1]) / 2
 	print("Median is: %f" % median)	
 	
-	if not (value in numbers):
-		numbers.update({value: 0})
-	numbers.update({value: (numbers[value] + 1)})
 	mode = []
 	for x in numbers:
 		if len(mode) == 0 or (numbers[x] > numbers[mode[0]]):
