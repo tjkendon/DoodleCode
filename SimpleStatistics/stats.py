@@ -1,10 +1,10 @@
 sum = 0
-count = 0
 
 product = 1;
 
 numbers = {}
 
+values = []
 median_list = []
 
 minimum = -1 
@@ -13,17 +13,22 @@ maximum = -1
 
 value = int(input())
 while value >= 0:
-	count += 1
+
+	values.append(value)
 
 	if not (value in numbers):
 		numbers.update({value: 0})
 	numbers.update({value: (numbers[value] + 1)})
 
+
+	print("Values: %s" % values)
+	print("Unique values: %s" % list(numbers.keys()))
+
 	sum += value
-	print("Arethmetic Mean is: %f" % (sum / count))
+	print("Arethmetic Mean is: %f" % (sum / len(values)))
 
 	product *= value	
-	print("Geometric Mean is: %f" % pow(product, 1 / count))
+	print("Geometric Mean is: %f" % pow(product, 1 / len(values)))
 	
 	
 	if minimum >= 0 :
@@ -36,7 +41,7 @@ while value >= 0:
 	print('Range: {0} .. {1}'.format(minimum, maximum))
 
 	median = 0
-	median_list = list(numbers.keys())
+	median_list = values;
 	median_list.sort()
 	if len(median_list) % 2 == 1:
 		median = median_list[len(median_list)//2]
