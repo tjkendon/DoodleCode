@@ -23,6 +23,10 @@ public class Event {
         return b;
     }
 
+    public boolean playedIn(Competitor q) {
+        return a.equals(q) || b.equals(q);
+    }
+
     public double getScoreA() {
         return aScore;
     }
