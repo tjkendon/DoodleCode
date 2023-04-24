@@ -35,4 +35,7 @@ public class Season {
     }
 
 
+    public List<Event> getEvents() {
+        return competitionModel.getEvents();
+    }
 }

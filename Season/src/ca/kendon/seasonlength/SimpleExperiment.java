@@ -24,5 +24,6 @@ public class SimpleExperiment implements Experiment {
         s.compete();
         Collection<Record> results = s.getResults();
         System.out.println(results);
+        System.out.println(s.getEvents());
     }
 }

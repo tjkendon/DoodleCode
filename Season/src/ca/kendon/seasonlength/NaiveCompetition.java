@@ -5,6 +5,7 @@ import java.util.*;
 public class NaiveCompetition implements CompetitionModel {
 
     Random random = new Random();
+    List<Event> competitions = new ArrayList<>();
 
     public Collection<Record> compete(List<Competitor> competitorList) {
 
@@ -23,6 +24,8 @@ public class NaiveCompetition implements CompetitionModel {
                 double cScore = random.nextDouble() * c.getTrueStrength();
                 double dScore = random.nextDouble() * d.getTrueStrength();
 
+                competitions.add(new Event(c, d, cScore, dScore));
+
                 if (cScore < dScore) {
                     rC.addLoss();
                     rD.addWin();
@@ -37,4 +40,7 @@ public class NaiveCompetition implements CompetitionModel {
         return records.values();
     }
 
+    public List<Event> getEvents() {
+        return competitions;
+    }
 }

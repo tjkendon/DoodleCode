@@ -6,5 +6,6 @@ import java.util.List;
 public interface CompetitionModel {
 
     Collection<Record> compete(List<Competitor> competitorList);
+    List<Event> getEvents();
 
 }
