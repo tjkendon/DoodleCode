@@ -9,16 +9,12 @@ public class Main {
     public static void main(String[] args) {
 
 
-        System.out.println("Test Season");
+        System.out.println("Test Experiment");
 
-        for (int i = 2; i <= 5; i++) {
-            CompetetorDataGenerator generator = new SimpleCompetitorListGenerator(i);
-            List<Competitor> competitors = generator.getCompetitors();
-            System.out.println(competitors);
-        }
-
-
-
+        CompetetorDataGenerator competetorGenerator = new SimpleCompetitorListGenerator(4);
+        List<Competitor> competitors = competetorGenerator.getCompetitors();
+        Experiment experiment = new SimpleExperiment(competitors, new Simple2PointModel(), new NaiveCompetition());
+        experiment.run();
 
 
         System.out.println("Done");

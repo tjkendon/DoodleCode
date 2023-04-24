@@ -16,7 +16,6 @@ public class NaiveCompetition implements CompetitionModel {
         for (int i = 0; i < competitorList.size(); i++) {
             Competitor c = competitorList.get(i);
             Record rC = records.get(c);
-            // fix for square
             for (int j = i + 1; j < competitorList.size(); j++) {
                 Competitor d = competitorList.get(j);
                 Record rD = records.get(d);

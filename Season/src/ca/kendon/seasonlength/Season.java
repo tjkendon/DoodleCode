@@ -30,10 +30,6 @@ public class Season {
         return competitionModel;
     }
 
-    public Collection<Record> getRecords() {
-        return results;
-    }
-
     public void compete() {
         results = competitionModel.compete(competitors);
     }
