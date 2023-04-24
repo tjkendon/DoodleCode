@@ -30,4 +30,8 @@ public class Event {
     public double getScoreB() {
         return bScore;
     }
+
+    public String toString() {
+        return "[" + a.getName() + " - " + b.getName() + ", " + aScore + " - " + bScore + "]";
+    }
 }
