@@ -21,6 +21,10 @@ public class ExperimentReport {
         return events.size();
     }
 
+    public int getTotalCompetitors() {
+        return competitors.size();
+    }
+
     public Map<Competitor, List<Event>> getAllCompetitorEvents() {
         HashMap<Competitor, List<Event>> eventMap = new HashMap<>();
         for (Competitor c: competitors) {
@@ -36,9 +40,34 @@ public class ExperimentReport {
 
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public List<Competitor> getCompetitors() {
+        return competitors;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    private String getCompetitorsString() {
+        StringBuilder s = new StringBuilder();
+        for (Competitor c: competitors) {
+            s.append(String.format("\t %s %n",c.getName()));
+        }
+        return s.toString();
+    }
+
     public String getReportString() {
 
-        return String.format("Experiment %s", id);
+        return String.format("Experiment %s%n%s Competitors%n%s%n" ,
+                id,
+                getTotalCompetitors(),
+                getCompetitorsString()
+                );
+
 
     }
 }
