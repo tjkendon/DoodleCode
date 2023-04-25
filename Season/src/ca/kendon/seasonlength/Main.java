@@ -15,6 +15,7 @@ public class Main {
         List<Competitor> competitors = competetorGenerator.getCompetitors();
         Experiment experiment = new SimpleExperiment(competitors, new Simple2PointModel(), new NaiveCompetition());
         experiment.run();
+        System.out.println(experiment.getReport().getReportString());
 
 
         System.out.println("Done");

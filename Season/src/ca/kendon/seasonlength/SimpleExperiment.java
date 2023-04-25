@@ -1,13 +1,22 @@
 package ca.kendon.seasonlength;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 public class SimpleExperiment implements Experiment {
 
+    private static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+
+    private String id;
+
     private List<Competitor> competitorList;
     private PointModel pointMode;
     private CompetitionModel competitionModel;
+
+    ExperimentReport report;
 
     public SimpleExperiment(
             List<Competitor> competitorList,
@@ -16,6 +25,7 @@ public class SimpleExperiment implements Experiment {
         this.competitorList = competitorList;
         this.pointMode = pointMode;
         this.competitionModel = competitionModel;
+        this.id = "SimpleExperiment" + dtf.format(LocalDateTime.now());
     }
 
     @Override
@@ -23,7 +33,11 @@ public class SimpleExperiment implements Experiment {
         Season s = new Season(competitorList, competitionModel, pointMode);
         s.compete();
         Collection<Record> results = s.getResults();
-        System.out.println(results);
-        System.out.println(s.getEvents());
+        report = new ExperimentReport(id, competitorList, s.getEvents());
+    }
+
+    @Override
+    public ExperimentReport getReport() {
+        return report;
     }
 }
