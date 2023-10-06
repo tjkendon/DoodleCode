@@ -25,7 +25,9 @@ void draw() {
   fill(boid.getColour());
   noStroke();
     
-  circle( boid.getPosition().x, boid.getPosition().x, boid.getSize());
+  circle( boid.getPosition().x, boid.getPosition().y, boid.getSize());
+  
+  boid.update_position();
           
   
 

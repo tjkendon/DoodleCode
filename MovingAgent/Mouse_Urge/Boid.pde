@@ -22,10 +22,11 @@ class Boid {
   //  acceleration.setMag(0.1);
   
   
-  public update_position() {
+  public void update_position() {
     velocity.add(acceleration);
     velocity.limit(top_speed);
     position.add(velocity);
+    println(position, velocity, acceleration);
   }
   
   public color getColour() {
@@ -36,8 +37,8 @@ class Boid {
     return position;
   }
   
-  public int getSize() {
-    return size();
+  public float getSize() {
+    return size;
   }
     
   
