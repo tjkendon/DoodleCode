@@ -1,8 +1,12 @@
 float accelerationMagnitude = 0.1;
 float top_speed = 5;
-float size = 33;
+float size = 10;
+
+
 
 class Boid {
+  
+  float neighbourhood = 40;
  
   private color colour;
   
@@ -30,7 +34,7 @@ class Boid {
     
   }
   
-  public void update_position(ArrayList<PVector> factors) {
+  public void updatePosition(ArrayList<PVector> factors) {
     
     acceleration = PVector.sub(factors.get(0),position);
     for (int i = 1; i < factors.size(); i++) {
@@ -41,6 +45,23 @@ class Boid {
     velocity.add(acceleration);
     velocity.limit(top_speed);
     position.add(velocity);
+    
+  }
+  
+  public boolean inCircle (float c_x, 
+                float c_y,
+                float c_r,
+                float p_x,
+                float p_y) {
+                  
+  return c_r > sqrt(
+    pow((p_x - c_x), 2) + pow((p_y - c_y), 2));                
+                  
+}
+  
+  public boolean inNeighbourhood(Boid b) {
+    return inCircle(position.x, position.y, neighbourhood, b.position.x, b.position.y);
+    
     
   }
   
@@ -55,6 +76,7 @@ class Boid {
   public float getSize() {
     return size;
   }
+  
     
   
 }
