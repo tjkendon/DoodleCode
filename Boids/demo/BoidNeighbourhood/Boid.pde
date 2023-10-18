@@ -48,6 +48,23 @@ class Boid {
     
   }
   
+  public boolean inCircle (float c_x, 
+                float c_y,
+                float c_r,
+                float p_x,
+                float p_y) {
+                  
+  return c_r > sqrt(
+    pow((p_x - c_x), 2) + pow((p_y - c_y), 2));                
+                  
+}
+  
+  public boolean inNeighbourhood(Boid b) {
+    return inCircle(position.x, position.y, neighbourhood, b.position.x, b.position.y);
+    
+    
+  }
+  
   public color getColour() {
     return colour;
   }
