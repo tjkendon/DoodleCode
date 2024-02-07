@@ -88,7 +88,7 @@ class Boid {
       }
       cluster = cluster.div(neighbours.size());
     
-      return cluster.rotate(PI);
+      return cluster;//.rotate(PI);
     } else {
       return new PVector(0, 0);
     }

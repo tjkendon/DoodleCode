@@ -58,7 +58,7 @@ void draw() {
     
     ArrayList factors = new ArrayList();
     //factors.add(new PVector(mouseX, mouseY));
-    //factors.add(new PVector(400,400));
+    factors.add(new PVector(400,400));
     factors.add(PVector.add(
       b.getSeperationUrge(boids),
       b.getPosition()));
