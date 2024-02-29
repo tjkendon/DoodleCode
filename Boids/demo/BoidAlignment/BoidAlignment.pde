@@ -38,7 +38,7 @@ void draw() {
       circle( ourBoid.getPosition().x, ourBoid.getPosition().y, ourBoid.getSize());
       
 
-      drawSeperationUrge(b);
+
     } else {
       if (ourBoid.inNeighbourhood(b)) {
         fill(200, 60, 60);  
@@ -50,11 +50,9 @@ void draw() {
         
     
     ArrayList factors = new ArrayList();
-    //factors.add(new PVector(mouseX, mouseY));
-    factors.add(new PVector(400,400));
-    factors.add(PVector.add(
-      b.calculateSeperationUrge(boids),
-      b.getPosition()));
+    factors.add(new PVector(mouseX, mouseY));
+    //factors.add(new PVector(400,400));
+ 
   
     b.updatePosition(factors);
     
@@ -68,15 +66,4 @@ void drawNeighbourhood(Boid b) {
   noFill();
   circle(b.getPosition().x, b.getPosition().y, b.getNeighbourhood() * 2);
       
-}
-
-void drawSeperationUrge(Boid b) {
-  println("S", b.getPosition().x, b.getPosition().y);
-  stroke(255,0,0);
-      line(
-        b.getPosition().x, 
-        b.getPosition().y, 
-        b.getPosition().x + b.calculateSeperationUrge(boids).x, 
-        b.getPosition().y + b.calculateSeperationUrge(boids).y);
-  noStroke();  
 }

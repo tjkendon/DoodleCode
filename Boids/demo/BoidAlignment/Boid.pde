@@ -85,23 +85,12 @@ class Boid {
 
     return neighbours;
   }
-
-  public PVector calculateSeperationUrge(ArrayList<Boid> allBoids) {
-
-    ArrayList<Boid> neighbours = findNeighbours(allBoids);
-    if (!neighbours.isEmpty()) {
-      PVector cluster = new PVector();
-
-      for (Boid b : neighbours) {
-        cluster = PVector.add(cluster, PVector.sub(b.position, this.position));
-      }
-      cluster = cluster.div(neighbours.size());
-
-      return cluster.rotate(PI);
-    } else {
-      return new PVector(0, 0);
-    }
+  
+  public PVector getAlignmentUrge() {
+    return getPosition();
   }
+
+
 
   public PVector getPosition() {
     return position;
