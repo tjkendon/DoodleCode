@@ -11,6 +11,8 @@ class Boid {
   private PVector position;
   private PVector velocity;
   private PVector acceleration;
+  
+
 
   public Boid() {
 
@@ -60,14 +62,7 @@ class Boid {
     position.add(velocity);
   }
 
-  public boolean inCircle (float cX,
-    float cY,
-    float cR,
-    float pX,
-    float pY) {
 
-    return cR > sqrt(pow((pX - cX), 2) + pow((pY - cY), 2));
-  }
 
   public boolean inNeighbourhood(Boid b) {
 
@@ -96,6 +91,14 @@ class Boid {
     return position;
   }
   
+  public PVector getVelocity() {
+    return velocity;
+  }
+  
+  public PVector getAcceleration() {
+    return acceleration;
+  }
+  
   public float getNeighbourhood() {
     return neighbourhood;
   }
@@ -106,5 +109,9 @@ class Boid {
 
   public float getSize() {
     return size;
+  }
+  
+  public String toString() {
+    return colour + " " + getPosition() + " " + getVelocity() + " " + getAcceleration();
   }
 }
